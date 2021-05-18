@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript Charts Exercise</title>
+    <title>Crypto Dashboard</title>
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="./css/index.css" />
-    <script defer src="./js/functions.js"></script>
-    <script defer src="./js/api.js"></script>
+    <script defer src="./scripts/functions.js"></script>
+    <script defer src="./scripts/api.js"></script>
   </head>
-  <body class="bg-info">
+  <body >
     <nav>
         <ul>
             <li>Home</li>
@@ -23,8 +23,19 @@
     <main>
         <div class="row">
             <div class="col-lg-3 top_currencies"></div>
-            <div class="col-lg-6 current_prices"></div>
-            <div class="col-lg-3 compare"></div>
+            <div class="col-lg-6 current_prices">
+                <div class= 'drop_down'>
+                    <label for="time_period"></label>
+                    <select name="time_period" id="time_period">
+                        <option value="month">Month</option>
+                        <option value="week">Week</option>
+                        <option value="day">Day</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 compare">
+                <div ></div>
+            </div>
         </div>
     </main>
   </body>
