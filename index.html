@@ -48,7 +48,11 @@
             </ol>
           </div>
         </div>
-        <div class="col-lg-6 current_prices"></div>
+        <div class="col-lg-6 current_prices">
+          <div class="prices"></div>
+          <div class="graphs"></div>
+          <div class="articles"></div>
+        </div>
         <div class="col-lg-3 compare">
           <div class="drop_down">
             <label for="time_period"></label>
@@ -57,6 +61,22 @@
               <option value="week">Week</option>
               <option value="day">Day</option>
             </select>
+          </div>
+          <div class="currency"></div>
+          <div class="input-group p-2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="BTC"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Doge"
+            />
+            <span class="input-group-btn">
+              <button class="btn btn-primary">Compare</button>
+            </span>
           </div>
         </div>
       </div>
