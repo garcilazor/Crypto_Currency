@@ -47,6 +47,10 @@ async function getTopTenVolume(localCurrency) {
         coinVolume: entry.RAW[localCurrency].VOLUMEDAY,
       });
     });
+    topDict.forEach((entry, index) => {
+      let listItem = document.getElementById(`#item${index + 1}`);
+      listItem.innerHTML = entry.coinSymbol + " -- " + entry.coinName;
+    });
     return topDict;
   } catch (err) {
     console.error(err);
@@ -83,5 +87,3 @@ async function getCoinSocialMediaActivity(coinName, coinSymbol) {
 // getCoinSocialMediaActivity("bitcoin", "btc").then((res) => console.log(res));
 // getCoinDataToTargetCurrency("btc", "usd").then((res) => console.log(res));
 // getTopTenVolume("USD").then((res) => console.log(res));
-
-getTopTenVolume("USD").then((res) => console.log(res));
