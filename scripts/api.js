@@ -33,11 +33,31 @@ async function fetchCryptoCoinId(coinName, coinSymbol) {
   }
 }
 
+async function getTopTenVolume(localCurrency) {
+  try {
+    const response = await axios.get(
+      `https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=${localCurrency}&api_key=${CRYPTOCOMPAREAPI}`
+    );
+    let topDict = [];
+    Object.values(response.data.Data).map((entry) => {
+      topDict.push({
+        coinName: entry.CoinInfo.FullName,
+        coinSymbol: entry.CoinInfo.Name,
+        coinPrice: entry.RAW[localCurrency].PRICE,
+        coinVolume: entry.RAW[localCurrency].VOLUMEDAY,
+      });
+    });
+    return topDict;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 // Data from Cryptonator, must use the coin codes outlined here: https://www.cryptonator.com/api/currencies
 // Converts to value type of currency in targetCurrency
 async function getCoinDataToTargetCurrency(currencyCode, targetCurrency) {
   try {
-    let response = await axios.get(
+    const response = await axios.get(
       `https://api.cryptonator.com/api/full/${currencyCode}-${targetCurrency}`
     );
     return response.data;
@@ -51,16 +71,17 @@ async function getCoinDataToTargetCurrency(currencyCode, targetCurrency) {
 async function getCoinSocialMediaActivity(coinName, coinSymbol) {
   try {
     let coinId = await fetchCryptoCoinId(coinName, coinSymbol);
-    let response = await axios.get(
+    const response = await axios.get(
       `https://min-api.cryptocompare.com/data/social/coin/latest?coinId=${coinId}&api_key=${CRYPTOCOMPAREAPI}`
     );
-    //   console.log("CryptoCompare Social Media Response\n", response.data);
     return response.data.Data;
   } catch (err) {
     console.log(err);
   }
 }
 
-getCoinSocialMediaActivity("bitcoin", "btc").then((res) => console.log(res));
+// getCoinSocialMediaActivity("bitcoin", "btc").then((res) => console.log(res));
+// getCoinDataToTargetCurrency("btc", "usd").then((res) => console.log(res));
+// getTopTenVolume("USD").then((res) => console.log(res));
 
-getCoinDataToTargetCurrency("btc", "usd").then((res) => console.log(res));
+getTopTenVolume("USD").then((res) => console.log(res));

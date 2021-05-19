@@ -10,22 +10,47 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="./css/index.css" />
-    <script defer src="./js/functions.js"></script>
-    <script defer src="./js/api.js"></script>
+    <script defer src="./scripts/functions.js"></script>
+    <script defer src="./scripts/api.js"></script>
   </head>
-  <body class="bg-info">
+  <body>
     <nav>
-        <ul>
-            <li>Home</li>
-            <li>Compare</li>
-        </ul>
+      <ul>
+        <li>Home</li>
+        <li>Compare</li>
+      </ul>
     </nav>
     <main>
-        <div class="row">
-            <div class="col-lg-3 top_currencies"></div>
-            <div class="col-lg-6 current_prices"></div>
-            <div class="col-lg-3 compare"></div>
+      <div class="row">
+        <div class="col-lg-3 top_currencies">
+          <div class="input-group p-2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Cryptocurrency"
+            />
+            <span class="input-group-btn">
+              <button class="btn btn-primary">Search</button>
+            </span>
+          </div>
+          <div class="div top_currencies_list_container p-2">
+            <ol id="top_currency_list">
+              <li id="item1"></li>
+              <li id="item2"></li>
+              <li id="item3"></li>
+              <li id="item4"></li>
+              <li id="item5"></li>
+              <li id="item6"></li>
+              <li id="item7"></li>
+              <li id="item8"></li>
+              <li id="item9"></li>
+              <li id="item10"></li>
+            </ol>
+          </div>
         </div>
+        <div class="col-lg-6 current_prices"></div>
+        <div class="col-lg-3 compare"></div>
+      </div>
     </main>
   </body>
 </html>
