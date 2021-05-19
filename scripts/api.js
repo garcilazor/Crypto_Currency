@@ -112,3 +112,16 @@ async function getCurrencyCode() {
     .catch((error) => console.log(error));
   
   }
+
+  async function getNewArticles(){
+    let url = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`
+    let data = await fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data.Data);
+            return(data.Data);
+        })
+        .catch((error) => console.log(error));
+  }
+  
+  //getTopTenVolume('USD')
