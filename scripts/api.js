@@ -1,7 +1,7 @@
-const axios = require("axios");
-require("dotenv").config();
+//let axios = require('axios')
+//require("dotenv").config();
 
-const CRYPTOCOMPAREAPI = process.env.CRYPTOCOMPAREAPI;
+//const CRYPTOCOMPAREAPI = process.env.CRYPTOCOMPAREAPI;
 
 // Get the CoinID from crytocompare based on the name or symbol
 // An attempt to find the matching coing Asynchronously
