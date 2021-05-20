@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script defer src="./scripts/functions.js"></script>
     <script defer src="./scripts/api.js"></script>
+    <script defer src="./scripts/chart.js"></script>
   </head>
   <body>
     <nav>
@@ -63,12 +64,10 @@
                 <div class="col-lg-4 col-md-6" id="price_col_four"></div>
               </div>
             </div>
-            <div class="container border rounded bg-light w-75 mt-5 marketCap">
-              <h1 class="h1 my-4">Exercise 02 - Charts</h1>
-              <canvas id="myChart" aria-label="donut chart" role="img"></canvas>
-            </div>
           </div>
-          <div class="graphs"></div>
+          <div class="container border rounded bg-light w-75 mt-5 graphs">
+            <div class="marketCap"></div>
+          </div>
           <div class="articles"></div>
         </div>
         <div class="col-lg-3 compare">
@@ -91,6 +90,14 @@
         </div>
       </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>-->
+    <script
+      type="text/javascript"
+      src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"
+    ></script>
   </body>
 </html>

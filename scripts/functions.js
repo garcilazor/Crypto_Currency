@@ -27,6 +27,8 @@ $(document).ready(function () {
       .end()
       .appendTo(".articles");
   }, 3000);
+
+  marketCap();
 });
 
 //getHistoricalData("BTC", "USD");
