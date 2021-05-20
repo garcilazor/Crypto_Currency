@@ -1,6 +1,7 @@
 $(document).ready(function () {
   getNewArticles();
   getTopTenVolume("USD").then(function (topTenData) {
+    topTenData.sort((a, b) => (a.coinPrice > b.coinPrice ? -1 : 1));
     $(topTenData).each(function (index, value) {
       if (index < 1) {
         let coinPriceContainer = $("<div></div>").text(value.coinPrice);
