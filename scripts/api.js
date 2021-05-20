@@ -138,8 +138,6 @@ async function getNewArticles() {
     .catch((error) => console.log(error));
 }
 
-getNewArticles();
-//getTopTenVolume('USD')
 $(document).ready(function () {
   getTopTenVolume("USD").then(function (topTenData) {
     $(topTenData).each(function (index, value) {
