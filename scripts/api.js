@@ -137,12 +137,3 @@ async function getNewArticles() {
     })
     .catch((error) => console.log(error));
 }
-
-$(document).ready(function () {
-  getTopTenVolume("USD").then(function (topTenData) {
-    $(topTenData).each(function (index, value) {
-      let coinPriceContainer = $("<div></div>").text(value.coinPrice);
-      $("#prices_container").append(coinPriceContainer);
-    });
-  });
-});
