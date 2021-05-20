@@ -19,3 +19,7 @@
   text-align: center;
   background-color: gray;
 }
+
+.articles {
+  display: none;
+}

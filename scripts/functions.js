@@ -17,6 +17,7 @@ $(document).ready(function () {
         $("#price_col_four").append(coinPriceContainer);
       }
     });
+    marketCap(topTenData);
   });
   $(".articles > div:gt(0)").hide();
 
@@ -28,8 +29,6 @@ $(document).ready(function () {
       .end()
       .appendTo(".articles");
   }, 3000);
-
-  marketCap();
 });
 
 //getHistoricalData("BTC", "USD");

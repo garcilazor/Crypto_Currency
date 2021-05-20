@@ -24,10 +24,10 @@
   },
 });
 */
-function marketCap() {
+function marketCap(topTen) {
   var options = {
     title: {
-      text: "Website Traffic Source",
+      text: "Market Cap",
     },
     data: [
       {
@@ -38,13 +38,16 @@ function marketCap() {
         indexLabel: "{label} ({y})",
         yValueFormatString: "#,##0.#" % "",
         dataPoints: [
-          { label: "Organic", y: 36 },
-          { label: "Email Marketing", y: 31 },
-          { label: "Referrals", y: 7 },
-          { label: "Twitter", y: 7 },
-          { label: "Facebook", y: 6 },
-          { label: "Google", y: 10 },
-          { label: "Others", y: 3 },
+          { label: topTen[0].coinName, y: topTen[0].marketCap },
+          { label: topTen[1].coinName, y: topTen[1].marketCap },
+          { label: topTen[2].coinName, y: topTen[2].marketCap },
+          { label: topTen[3].coinName, y: topTen[3].marketCap },
+          { label: topTen[4].coinName, y: topTen[4].marketCap },
+          { label: topTen[5].coinName, y: topTen[5].marketCap },
+          { label: topTen[6].coinName, y: topTen[6].marketCap },
+          { label: topTen[7].coinName, y: topTen[7].marketCap },
+          { label: topTen[8].coinName, y: topTen[8].marketCap },
+          { label: topTen[9].coinName, y: topTen[9].marketCap },
         ],
       },
     ],
