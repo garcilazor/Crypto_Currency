@@ -39,6 +39,7 @@ async function getTopTenVolume(localCurrency) {
           coinSymbol: entry.CoinInfo.Name,
           coinPrice: entry.RAW[localCurrency].PRICE,
           coinVolume: entry.RAW[localCurrency].VOLUMEDAY,
+          marketCap: entry.RAW[localCurrency].MKTCAP,
         });
       });
       topDict.forEach((entry, index) => {
