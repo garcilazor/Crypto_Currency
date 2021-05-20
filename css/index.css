@@ -26,6 +26,5 @@
 
 #top_currency_list {
   background-color: gray;
-}
-#top_currency_list > * {
+  border-radius: 5px;
 }
