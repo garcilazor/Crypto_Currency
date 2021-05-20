@@ -1,3 +1,8 @@
+#price_grid > * {
+  text-align: center;
+  background-color: gray;
+}
+
 .articles {
   margin: 50px auto;
   position: relative;
@@ -6,20 +11,10 @@
   padding: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
-
 .articles > div {
   position: absolute;
   top: 10px;
   left: 10px;
   right: 10px;
   bottom: 10px;
-}
-
-#price_grid > * {
-  text-align: center;
-  background-color: gray;
-}
-
-.articles {
-  display: none;
 }

@@ -11,10 +11,10 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/index.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script defer src="./scripts/functions.js"></script>
     <script defer src="./scripts/api.js"></script>
     <script defer src="./scripts/chart.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </head>
   <body>
     <nav>
@@ -68,8 +68,14 @@
               </div>
             </div>
           </div>
-          <div class="container border rounded bg-light w-75 mt-5 graphs">
-            <div class="marketCap"></div>
+          <div class="container border rounded bg-light graphs">
+            <div class="container marketCap">
+              <canvas
+                id="marketCap"
+                aria-label="donut chart"
+                role="img"
+              ></canvas>
+            </div>
           </div>
           <div class="articles"></div>
         </div>
@@ -93,14 +99,10 @@
         </div>
       </div>
     </main>
-    <!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>-->
-    <script
-      type="text/javascript"
-      src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"
-    ></script>
-    <script
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- <script
       type="text/javascript"
       src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"
-    ></script>
+    ></script> -->
   </body>
 </html>

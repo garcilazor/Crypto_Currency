@@ -1,56 +1,57 @@
-/*new Chart(document.getElementById("pie-chart"), {
-  type: "pie",
-  data: {
-    labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+function marketCap(topTen) {
+  const data = {
+    labels: [
+      topTen[0].coinName,
+      topTen[1].coinName,
+      topTen[2].coinName,
+      topTen[3].coinName,
+      topTen[4].coinName,
+      topTen[5].coinName,
+      topTen[6].coinName,
+      topTen[7].coinName,
+      topTen[8].coinName,
+      topTen[9].coinName,
+    ],
     datasets: [
       {
-        label: "Population (millions)",
+        label: "Market Cap",
+        data: [
+          topTen[0].marketCap,
+          topTen[1].marketCap,
+          topTen[2].marketCap,
+          topTen[3].marketCap,
+          topTen[4].marketCap,
+          topTen[5].marketCap,
+          topTen[6].marketCap,
+          topTen[7].marketCap,
+          topTen[8].marketCap,
+          topTen[9].marketCap,
+        ],
         backgroundColor: [
-          "#3e95cd",
-          "#8e5ea2",
-          "#3cba9f",
-          "#e8c3b9",
-          "#c45850",
+          "rgb(255, 99, 132)",
+          "rgb(54, 162, 235)",
+          "rgb(255, 205, 86)",
+          "blue",
+          "black",
+          "white",
+          "green",
+          "turquoise",
+          "teal",
+          "light green",
         ],
-        data: [2478, 5267, 734, 784, 433],
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Predicted world population (millions) in 2050",
-    },
-  },
-});
-*/
-function marketCap(topTen) {
-  var options = {
-    title: {
-      text: "Market Cap",
-    },
-    data: [
-      {
-        type: "pie",
-        startAngle: 45,
-        showInLegend: "true",
-        legendText: "{label}",
-        indexLabel: "{label} ({y})",
-        yValueFormatString: "#,##0.#" % "",
-        dataPoints: [
-          { label: topTen[0].coinName, y: topTen[0].marketCap },
-          { label: topTen[1].coinName, y: topTen[1].marketCap },
-          { label: topTen[2].coinName, y: topTen[2].marketCap },
-          { label: topTen[3].coinName, y: topTen[3].marketCap },
-          { label: topTen[4].coinName, y: topTen[4].marketCap },
-          { label: topTen[5].coinName, y: topTen[5].marketCap },
-          { label: topTen[6].coinName, y: topTen[6].marketCap },
-          { label: topTen[7].coinName, y: topTen[7].marketCap },
-          { label: topTen[8].coinName, y: topTen[8].marketCap },
-          { label: topTen[9].coinName, y: topTen[9].marketCap },
-        ],
+
+        hoverOffset: 4,
       },
     ],
   };
-  $(".marketCap").CanvasJSChart(options);
+  var ctx = document.getElementById("marketCap");
+  var myChart = new Chart(ctx, {
+    type: "doughnut",
+    data: data,
+    options: {
+      legend: {
+        position: "bottom",
+      },
+    },
+  });
 }
