@@ -140,3 +140,11 @@ async function getNewArticles() {
 
 getNewArticles();
 //getTopTenVolume('USD')
+$(document).ready(function () {
+  getTopTenVolume("USD").then(function (topTenData) {
+    $(topTenData).each(function (index, value) {
+      let coinPriceContainer = $("<div></div>").text(value.coinPrice);
+      $("#prices_container").append(coinPriceContainer);
+    });
+  });
+});

@@ -9,6 +9,7 @@
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/index.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script defer src="./scripts/functions.js"></script>
@@ -50,7 +51,10 @@
           </div>
         </div>
         <div class="col-lg-6 current_prices">
-          <div class="prices"></div>
+          <div
+            class="prices d-flex flex-row flex-wrap justify-content-center"
+            id="prices_container"
+          ></div>
           <div class="graphs"></div>
           <div class="articles"></div>
         </div>
