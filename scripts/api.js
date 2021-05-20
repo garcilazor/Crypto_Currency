@@ -75,7 +75,7 @@ async function getCoinSocialMediaActivity(coinName, coinSymbol) {
 }
 
 async function getCurrencyCode() {
-  let url = 'https://json.geoiplookup.io/';
+  let url = "https://json.geoiplookup.io/";
   let data = await fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -84,44 +84,59 @@ async function getCurrencyCode() {
     .catch((error) => console.log(error));
   console.log(data.currency_code);
   return data.currency_code;
-  }
-  
-  async function getHistoricalData(coinSymbol, currencyCode) {
-    const userChoice = document.getElementById("#time_period");
-    let limit = 0;
-    let url = `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coinSymbol}&tsym=${currencyCode}`;
-    if(userChoice === "month"){
-        limit = 30;
-        url += `&limit=${limit}&days=30`;
-    }
-    else if(userChoice === "week"){
-        limit = 7;
-        url += `&limit=${limit}&days=7`;
-    }
-    else {
-        limit = 24;
-        url = `https://min-api.cryptocompare.com/data/v2/histohour?fsym=${coinSymbol}&tsym=${currencyCode}&limit=${limit}`;
-    }
+}
 
-    let data = await fetch(url)
+async function getHistoricalData(coinSymbol, currencyCode) {
+  const userChoice = document.getElementById("#time_period");
+  let limit = 0;
+  let url = `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coinSymbol}&tsym=${currencyCode}`;
+  if (userChoice === "month") {
+    limit = 30;
+    url += `&limit=${limit}&days=30`;
+  } else if (userChoice === "week") {
+    limit = 7;
+    url += `&limit=${limit}&days=7`;
+  } else {
+    limit = 24;
+    url = `https://min-api.cryptocompare.com/data/v2/histohour?fsym=${coinSymbol}&tsym=${currencyCode}&limit=${limit}`;
+  }
+
+  let data = await fetch(url)
     .then((response) => response.json())
     .then((data) => {
-        console.log(data.Data);
-        return(data.Data);
+      console.log(data.Data);
+      return data.Data;
     })
     .catch((error) => console.log(error));
-  
-  }
+}
 
-  async function getNewArticles(){
-    let url = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`
-    let data = await fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data.Data);
-            return(data.Data);
-        })
-        .catch((error) => console.log(error));
-  }
-  
-  //getTopTenVolume('USD')
+async function getNewArticles() {
+  let url = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`;
+  let container = document.querySelector(".articles");
+  let data = await fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      let articles = [];
+      //  console.log(data.Data);
+      Object.values(data.Data).map((entry) => {
+        articles.push({
+          title: entry.title,
+          url: entry.url,
+          imageUrl: entry.imageurl,
+        });
+      });
+
+      articles.forEach((entry, index) => {
+        let listItem = document.getElementById(`articles`);
+        let ele = document.createElement("div");
+        ele.innerHTML = "<img src=" + entry.imageUrl + "></img>";
+        container.append(ele);
+      });
+      //console.log(articles);
+      return articles;
+    })
+    .catch((error) => console.log(error));
+}
+
+getNewArticles();
+//getTopTenVolume('USD')
