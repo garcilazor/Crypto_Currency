@@ -55,3 +55,37 @@ function marketCap(topTen) {
     },
   });
 }
+
+function blockChainLineGraph(CoinName, input) {
+  console.log(input.time);
+  console.log(input.transactionCount);
+  const options = {
+    responsive: true,
+  };
+  const data = {
+    labels: input.time,
+    datasets: [
+      {
+        label: "Transaction Count",
+        data: input.transactionCount,
+        fill: false,
+        backgroundColor: "rgba(0, 181, 255, 1)",
+        borderColor: "red", // The main line color
+      },
+      {
+        label: "Block Size",
+        data: input.blockSize,
+        fill: false,
+        backgroundColor: "rgba(255, 3, 8, 1)",
+        borderColor: "green", // The main line color
+      },
+    ],
+  };
+  let canvas = document.getElementById("blocksMined");
+  let ctx = canvas.getContext("2d");
+  var myChart = new Chart(ctx, {
+    type: "line",
+    data: data,
+    options: options,
+  });
+}

@@ -1,4 +1,5 @@
-const CRYPTOCOMPAREAPI = "";
+const CRYPTOCOMPAREAPI =
+  "884dab4e1acc11768097bbbb4e11b0a0e04e167297aa7d11437fa5922e4b5e51";
 
 // Get the CoinID from crytocompare based on the name or symbol
 // An attempt to find the matching coing Asynchronously
@@ -137,4 +138,35 @@ async function getNewArticles() {
       return articles;
     })
     .catch((error) => console.log(error));
+}
+
+async function HistoricalDailyBlockChain(targetCurrency) {
+  let url = `https://min-api.cryptocompare.com/data/blockchain/histo/day?fsym=${targetCurrency}&api_key=${CRYPTOCOMPAREAPI}`;
+  let time = [];
+  let rawData = [];
+  let transactionCount = [];
+  let currentSupply = [];
+  let blockSize = [];
+  let finalData = {};
+  let data = await fetch(url)
+    .then((response) => response.json())
+    .then((res) => {
+      Object.values(res.Data.Data).map((entry) => {
+        let d = new Date(0);
+        d.setUTCSeconds(entry.time);
+        time.push(d.toLocaleString().split(",", 1));
+        rawData.push(entry);
+        blockSize.push(entry.block_size);
+        transactionCount.push(entry.transaction_count);
+        currentSupply.push(entry.current_supply);
+      });
+      finalData.time = time;
+      finalData.data = rawData;
+      finalData.transactionCount = transactionCount;
+      finalData.currentSupply = currentSupply;
+      finalData.blockSize = blockSize;
+      return finalData;
+    })
+    .catch((error) => console.log(error));
+  return data;
 }

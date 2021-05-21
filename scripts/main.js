@@ -5,6 +5,9 @@ $(document).ready(function () {
     topTenPrices(topTenData);
     marketCap(topTenData);
   });
+  HistoricalDailyBlockChain("BTC").then((res) => {
+    blockChainLineGraph("BTC", res);
+  });
 });
 
 //getHistoricalData("BTC", "USD");
