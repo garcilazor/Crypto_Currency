@@ -1,4 +1,5 @@
 function marketCap(topTen) {
+  console.log(parseInt(topTen[0].marketCap));
   const data = {
     labels: [
       topTen[0].coinName,
