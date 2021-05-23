@@ -76,6 +76,8 @@ async function getCoinSocialMediaActivity(coinName, coinSymbol) {
   return data;
 }
 
+//get the currency code based on the origins of the ip of
+// the user
 async function getCurrencyCode() {
   let url = "https://json.geoiplookup.io/";
   let data = await fetch(url)
@@ -88,6 +90,8 @@ async function getCurrencyCode() {
   return data.currency_code;
 }
 
+//fetches the historical of a particular cryptocurrency
+// in a particular currency
 async function getHistoricalData(coinSymbol, currencyCode) {
   const userChoice = document.getElementById("#time_period");
   let limit = 0;
@@ -111,10 +115,10 @@ async function getHistoricalData(coinSymbol, currencyCode) {
     })
     .catch((error) => console.log(error));
 }
-
+//fetches the top news articles for on cryptocurrencies
 async function getNewArticles() {
   let url = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`;
-  let container = document.querySelector(".articles");
+  let container = document.querySelector(".carousel-inner");
   let data = await fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -127,11 +131,19 @@ async function getNewArticles() {
           imageUrl: entry.imageurl,
         });
       });
-
+      let flag = 1;
       articles.forEach((entry, index) => {
-        let listItem = document.getElementById(`articles`);
+        //let listItem = document.getElementById(`articles`);
         let ele = document.createElement("div");
-        ele.innerHTML = "<img src=" + entry.imageUrl + "></img>";
+        if (Boolean(flag)) {
+          ele.setAttribute("class", "carousel-item active");
+          flag = 0;
+        } else {
+          ele.setAttribute("class", "carousel-item");
+        }
+        ele.innerHTML =
+          "<img class='d-block w-100' src='" + entry.imageUrl + "' />";
+        //"<img class='d-block w-80'  alt='" + index + " slide'>";
         container.append(ele);
       });
       //console.log(articles);
