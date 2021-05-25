@@ -135,8 +135,13 @@ async function getNewArticles() {
       });
       let flag = 1;
       articles.forEach((entry, index) => {
-        //let listItem = document.getElementById(`articles`);
         let ele = document.createElement("div");
+        let wordCount = entry.body.split(" ");
+        if (wordCount.length > 20) {
+          wordCount.length = 20;
+          wordCount.push("...");
+          entry.body = wordCount.join(" ");
+        }
         if (Boolean(flag)) {
           ele.setAttribute("class", "carousel-item active");
           flag = 0;
@@ -144,13 +149,12 @@ async function getNewArticles() {
           ele.setAttribute("class", "carousel-item");
         }
         ele.innerHTML = `<img src="https://wholistickids.com/wp-content/uploads/2019/01/plain-black-background.jpg" class="d-block w-100" alt="..."><div class="carousel-caption d-none d-md-block">
-                         <h5>First slide label</h5>
-                         <p>Some representative placeholder content for the first slide.</p>
+                         <h5>${entry.title}</h5>
+                         <p>${entry.body}</p>
                          </div>`;
-        //"<img class='d-block w-80'  alt='" + index + " slide'>";
         container.append(ele);
       });
-      //console.log(articles);
+
       return articles;
     })
     .catch((error) => console.log(error));
