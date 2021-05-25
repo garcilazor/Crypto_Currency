@@ -128,7 +128,9 @@ async function getNewArticles() {
         articles.push({
           title: entry.title,
           url: entry.url,
-          imageUrl: entry.imageurl,
+          image: entry.imageurl,
+          title: entry.title,
+          body: entry.body,
         });
       });
       let flag = 1;
@@ -141,8 +143,10 @@ async function getNewArticles() {
         } else {
           ele.setAttribute("class", "carousel-item");
         }
-        ele.innerHTML =
-          "<img class='d-block w-100' src='" + entry.imageUrl + "' />";
+        ele.innerHTML = `<img src=" ${entry.image}" class="d-block w-100" alt="..."><div class="carousel-caption d-none d-md-block">
+                         <h5>First slide label</h5>
+                         <p>Some representative placeholder content for the first slide.</p>
+                         </div>`;
         //"<img class='d-block w-80'  alt='" + index + " slide'>";
         container.append(ele);
       });

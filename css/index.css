@@ -4,22 +4,8 @@
 }
 img {
   height: 200px;
+  display: none;
 }
-/*.articles {
-  margin: 50px auto;
-  position: relative;
-  width: 240px;
-  height: 240px;
-  padding: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-.articles > div {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-}*/
 
 #price_grid > * {
   text-align: center;
