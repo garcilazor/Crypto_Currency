@@ -58,8 +58,6 @@ function marketCap(topTen) {
 }
 
 function blockChainLineGraph(CoinName, input) {
-  console.log(input.time);
-  console.log(input.transactionCount);
   const options = {
     responsive: true,
   };

@@ -36,6 +36,7 @@ async function getTopTenVolume(localCurrency) {
       let topDict = [];
       Object.values(data.Data).map((entry) => {
         topDict.push({
+          currencyCode: localCurrency.toString(),
           coinName: entry.CoinInfo.FullName,
           coinSymbol: entry.CoinInfo.Name,
           coinPrice: entry.RAW[localCurrency].PRICE,
@@ -43,9 +44,14 @@ async function getTopTenVolume(localCurrency) {
           marketCap: entry.RAW[localCurrency].MKTCAP,
         });
       });
+      $("#volume_header")
+        .append("(")
+        .append(topDict[0].currencyCode)
+        .append(")");
       topDict.forEach((entry, index) => {
         let listItem = document.getElementById(`item${index + 1}`);
-        listItem.innerHTML = entry.coinSymbol + " -- " + entry.coinName;
+        listItem.innerHTML =
+          "[" + entry.coinSymbol + "]" + " " + entry.coinName;
       });
       return topDict;
     })
