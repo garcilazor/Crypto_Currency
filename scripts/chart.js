@@ -51,7 +51,7 @@ function marketCap(topTen) {
     data: data,
     options: {
       legend: {
-        position: "right",
+        position: "bottom",
       },
       maintainAspectRatio: false,
     },
@@ -91,7 +91,7 @@ function blockChainLineGraph(CoinName, input) {
 }
 
 function dayPriceGraph(dayData) {
-  console.log(dayData);
+  // console.log(dayData);
   const data = {
     labels: dayData.time,
     datasets: [
@@ -142,7 +142,7 @@ function weekPriceGraph(weekData) {
 }
 
 function monthPriceGraph(monthData) {
-  console.log(monthData);
+  //console.log(monthData);
   const data = {
     labels: monthData.time,
     datasets: [

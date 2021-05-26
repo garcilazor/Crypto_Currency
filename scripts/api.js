@@ -99,7 +99,7 @@ async function getCurrencyCode() {
 //fetches the historical of a particular cryptocurrency
 // in a particular currency
 async function getHistoricalData(coinSymbol, currencyCode, choice) {
-  console.log(coinSymbol, currencyCode, choice);
+  // console.log(coinSymbol, currencyCode, choice);
   let times = [];
   let closingPrices = [];
   let allData = {};
