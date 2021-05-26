@@ -175,10 +175,10 @@ async function getNewArticles() {
         } else {
           ele.setAttribute("class", "carousel-item");
         }
-        ele.innerHTML = `<img src="https://wholistickids.com/wp-content/uploads/2019/01/plain-black-background.jpg" class="d-block w-100" alt="${entry.title}"><div class="carousel-caption d-none d-md-block">
+        ele.innerHTML = ` <a href="${entry.url}"><img src="https://wholistickids.com/wp-content/uploads/2019/01/plain-black-background.jpg" class="d-block w-100" alt="${entry.title}"><div class="carousel-caption d-none d-md-block">
                          <h5>${entry.title}</h5>
                          <p>${entry.body}</p>
-                         </div>`;
+                         </div></a>`;
         container.append(ele);
       });
 

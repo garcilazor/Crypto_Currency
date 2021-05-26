@@ -53,6 +53,7 @@ function marketCap(topTen) {
       legend: {
         position: "right",
       },
+      maintainAspectRatio: false,
     },
   });
 }
