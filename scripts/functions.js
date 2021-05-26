@@ -5,3 +5,7 @@ function topTenPrices(topTenData) {
     listItem.innerHTML = "[" + value.coinSymbol + "] " + value.coinPrice;
   });
 }
+
+function priceGraphs() {
+  dayPriceGraph(getHistoricalData("BTC", "USD", "day"));
+}

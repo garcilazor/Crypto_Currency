@@ -201,22 +201,27 @@
           </div>
         </div>
         <div class="col-lg-6 current_prices">
-          <!-- <div
-            class="prices d-flex flex-row flex-wrap justify-content-center"
-            id="prices_container"
-          >
-            <div class="container p-3">
-              <div class="row gap-1" id="price_grid">
-                <div class="col-sm-12 rounded" id="price_col_main"></div>
-                <div class="col-sm rounded" id="price_col_two"></div>
-                <div class="col-sm rounded" id="price_col_three"></div>
-                <div class="col-sm rounded" id="price_col_four"></div>
-              </div>
+          <div class="row curr_prices_graphs">
+            <div class="col-lg-12">
+              <canvas
+                id="month_graph"
+                aria-label="lineGraph"
+                role="img"
+              ></canvas>
             </div>
-          </div> -->
-
+            <div class="col-lg-6">
+              <canvas
+                id="week_graph"
+                aria-label="lineGraph"
+                role="img"
+              ></canvas>
+            </div>
+            <div class="col-lg-6">
+              <canvas id="day_graph" role="img"></canvas>
+            </div>
+          </div>
           <div
-            id="carouselExampleControls"
+            id="carouselControls"
             class="carousel slide"
             data-bs-ride="carousel"
           >
@@ -224,7 +229,7 @@
             <button
               class="carousel-control-prev"
               type="button"
-              data-bs-target="#carouselExampleControls"
+              data-bs-target="#carouselControls"
               data-bs-slide="prev"
             >
               <span
@@ -236,7 +241,7 @@
             <button
               class="carousel-control-next"
               type="button"
-              data-bs-target="#carouselExampleControls"
+              data-bs-target="#carouselControls"
               data-bs-slide="next"
             >
               <span
