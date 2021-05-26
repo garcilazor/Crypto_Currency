@@ -1,5 +1,5 @@
 function marketCap(topTen) {
-  console.log(parseInt(topTen[0].marketCap));
+  // console.log(parseInt(topTen[0].marketCap));
   const data = {
     labels: [
       topTen[0].coinName,
@@ -58,6 +58,8 @@ function marketCap(topTen) {
 }
 
 function blockChainLineGraph(CoinName, input) {
+  //console.log(input.time);
+  //console.log(input.transactionCount);
   const options = {
     responsive: true,
   };

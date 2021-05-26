@@ -98,14 +98,17 @@ async function getCurrencyCode() {
 
 //fetches the historical of a particular cryptocurrency
 // in a particular currency
-async function getHistoricalData(coinSymbol, currencyCode) {
-  const userChoice = document.getElementById("#time_period");
+async function getHistoricalData(coinSymbol, currencyCode, choice) {
+  let times = [];
+  let closingPrices = [];
+  let allData = {};
+
   let limit = 0;
   let url = `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coinSymbol}&tsym=${currencyCode}`;
-  if (userChoice === "month") {
+  if (choice === "month") {
     limit = 30;
     url += `&limit=${limit}&days=30`;
-  } else if (userChoice === "week") {
+  } else if (choice === "week") {
     limit = 7;
     url += `&limit=${limit}&days=7`;
   } else {
@@ -117,7 +120,23 @@ async function getHistoricalData(coinSymbol, currencyCode) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data.Data);
-      return data.Data;
+      Object.values(data.Data.Data).map((entry) => {
+        let time = new Date(0);
+        time.setUTCSeconds(entry.time);
+        if (choice !== "month" || choice !== "week") {
+          let y = time.toLocaleString().split(",");
+          times.push(y);
+        } else {
+          y = time.toLocaleString();
+          times.push(y[0]);
+          // times.push(time.toLocaleString().split(",", 0));
+        }
+        closingPrices.push(entry.close);
+      });
+      allData.time = times;
+      allData.closingPrices = closingPrices;
+      console.log(allData);
+      return allData;
     })
     .catch((error) => console.log(error));
 }
