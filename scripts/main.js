@@ -1,6 +1,10 @@
 $(document).ready(function () {
   getNewArticles();
 
+  getHistoricalData("BTC", "USD", "week").then(function (res) {
+    weekPriceGraph(res);
+  });
+
   getTopTenVolume("USD").then(function (topTenData) {
     topTenData.sort((a, b) => (a.coinPrice > b.coinPrice ? -1 : 1));
     topTenPrices(topTenData);

@@ -51,15 +51,13 @@ function marketCap(topTen) {
     data: data,
     options: {
       legend: {
-        position: "bottom",
+        position: "right",
       },
     },
   });
 }
 
 function blockChainLineGraph(CoinName, input) {
-  //console.log(input.time);
-  //console.log(input.transactionCount);
   const options = {
     responsive: true,
   };
@@ -70,14 +68,14 @@ function blockChainLineGraph(CoinName, input) {
         label: "Transaction Count",
         data: input.transactionCount,
         fill: false,
-        backgroundColor: "rgba(0, 181, 255, 1)",
+        backgroundColor: "red",
         borderColor: "red", // The main line color
       },
       {
         label: "Block Size",
         data: input.blockSize,
         fill: false,
-        backgroundColor: "rgba(255, 3, 8, 1)",
+        backgroundColor: "green",
         borderColor: "green", // The main line color
       },
     ],
@@ -144,6 +142,31 @@ function dayPriceGraph(topTen) {
     options: {
       legend: {
         position: "bottom",
+      },
+    },
+  });
+}
+
+function weekPriceGraph(weekData) {
+  const data = {
+    labels: weekData.time,
+    datasets: [
+      {
+        label: "Weekly Prices",
+        fill: false,
+        data: weekData.closingPrices,
+        borderColor: "green",
+        backgroundColor: "green",
+      },
+    ],
+  };
+  var ctx = document.getElementById("week_graph");
+  var myChart = new Chart(ctx, {
+    type: "line",
+    data: data,
+    options: {
+      legend: {
+        position: "top",
       },
     },
   });
