@@ -6,6 +6,4 @@ function topTenPrices(topTenData) {
   });
 }
 
-function priceGraphs() {
-  dayPriceGraph(getHistoricalData("BTC", "USD", "day"));
-}
+function priceGraphs() {}

@@ -89,16 +89,17 @@ async function getCurrencyCode() {
   let data = await fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      return data;
+      return data.currency_code;
     })
     .catch((error) => console.log(error));
-  console.log(data.currency_code);
-  return data.currency_code;
+  // console.log(data.currency_code);
+  return data;
 }
 
 //fetches the historical of a particular cryptocurrency
 // in a particular currency
 async function getHistoricalData(coinSymbol, currencyCode, choice) {
+  console.log(coinSymbol, currencyCode, choice);
   let times = [];
   let closingPrices = [];
   let allData = {};
@@ -119,7 +120,7 @@ async function getHistoricalData(coinSymbol, currencyCode, choice) {
   let data = await fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.Data);
+      //console.log(data.Data);
       Object.values(data.Data.Data).map((entry) => {
         let time = new Date(0);
         time.setUTCSeconds(entry.time);
