@@ -123,13 +123,13 @@ async function getHistoricalData(coinSymbol, currencyCode, choice) {
       Object.values(data.Data.Data).map((entry) => {
         let time = new Date(0);
         time.setUTCSeconds(entry.time);
-        if (choice !== "month" || choice !== "week") {
+        if (choice === "day") {
           let y = time.toLocaleString().split(",");
-          times.push(y);
+          times.push(y[1]);
         } else {
-          y = time.toLocaleString();
+          let y = time.toLocaleString().split(",");
+          //console.log(y[0]);
           times.push(y[0]);
-          // times.push(time.toLocaleString().split(",", 0));
         }
         closingPrices.push(entry.close);
       });
