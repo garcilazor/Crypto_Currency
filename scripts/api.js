@@ -135,10 +135,11 @@ async function getHistoricalData(coinSymbol, currencyCode, choice) {
       });
       allData.time = times;
       allData.closingPrices = closingPrices;
-      console.log(allData);
+      // console.log(allData);
       return allData;
     })
     .catch((error) => console.log(error));
+  return data;
 }
 //fetches the top news articles for on cryptocurrencies
 async function getNewArticles() {
