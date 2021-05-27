@@ -227,40 +227,20 @@ async function MutlipleSymbolsFullData(currency1, currency2, localCurrency) {
 
   let parsedData = [];
   parsedData.localCurrency = localCurrency;
+  console.log(data);
   Object.values(data.RAW[currency1]).map((entry) => {
     parsedData.currency1 = {
       symbol: entry.FROMSYMBOL,
-      data: [
-        entry.HIGH24HOUR,
-        entry.LOW24HOUR,
-        entry.PRICE,
-        entry.SUPPLY,
-        entry.VOLUME24HOUR,
-        entry.MKTCAP,
-      ],
+      data: [entry.HIGH24HOUR, entry.LOW24HOUR, entry.PRICE],
     };
   });
   Object.values(data.RAW[currency2]).map((entry) => {
     parsedData.currency2 = {
       symbol: entry.FROMSYMBOL,
-      data: [
-        entry.HIGH24HOUR,
-        entry.LOW24HOUR,
-        entry.PRICE,
-        entry.SUPPLY,
-        entry.VOLUME24HOUR,
-        entry.MKTCAP,
-      ],
+      data: [entry.HIGH24HOUR, entry.LOW24HOUR, entry.PRICE],
     };
   });
-  parsedData.labels = [
-    "24-hour High",
-    "24-hour Low",
-    "Current Price",
-    "Supply",
-    "24-hour Volume",
-    "Market Cap",
-  ];
+  parsedData.labels = ["24-hour High", "24-hour Low", "Current Price"];
   return parsedData;
 }
 

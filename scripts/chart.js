@@ -168,29 +168,30 @@ function monthPriceGraph(monthData) {
 }
 
 function MultiSymbolFullDataChart(chartData) {
-  console.log(chartData.currency1.data);
   const data = {
     labels: chartData.labels,
     datasets: [
       {
         label: chartData.currency1.symbol,
-        data: chartData.currency1.data,
         borderColor: "red",
         backgroundColor: "red",
+        data: chartData.currency1.data,
       },
       {
         label: chartData.currency2.symbol,
-        data: chartData.currency2.data,
         borderColor: "blue",
         backgroundColor: "blue",
+        data: chartData.currency2.data,
       },
     ],
   };
-  var ctx = document.getElementById("multiSymbolFullData");
+  var canvas = document.getElementById("multiSymbolFullData");
+  let ctx = canvas.getContext("2d");
   var myChart = new Chart(ctx, {
     type: "bar",
     data: data,
     options: {
+      responsive: true,
       legend: {
         position: "top",
       },
