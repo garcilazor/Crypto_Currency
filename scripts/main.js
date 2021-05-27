@@ -1,11 +1,11 @@
 $(document).ready(function () {
   getNewArticles();
+  getCurrencyCode().then(function (code) {
+    getTopTenVolume("USD").then(function (topTenData) {
+      topTenData.sort((a, b) => (a.coinPrice > b.coinPrice ? -1 : 1));
+      topTenPrices(topTenData);
+      marketCap(topTenData);
 
-  getTopTenVolume("USD").then(function (topTenData) {
-    topTenData.sort((a, b) => (a.coinPrice > b.coinPrice ? -1 : 1));
-    topTenPrices(topTenData);
-    marketCap(topTenData);
-    getCurrencyCode().then(function (code) {
       getHistoricalData(topTenData[0].coinSymbol, code, "day").then(function (
         dayData
       ) {
