@@ -30,6 +30,7 @@ $(document).ready(function () {
   MutlipleSymbolsFullData("BTC", "ETH", "USD").then((res) => {
     MultiSymbolFullDataChart(res);
   });
+  getMiningData("BTC", "ETH", "USD");
 });
 
 //getHistoricalData("BTC", "USD");
