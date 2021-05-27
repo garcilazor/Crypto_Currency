@@ -28,6 +28,7 @@ $(document).ready(function () {
     blockChainLineGraph("BTC", res);
   });
   MutlipleSymbolsFullData("BTC", "ETH", "USD");
+  getMiningData("BTC", "ETH", "USD");
 });
 
 //getHistoricalData("BTC", "USD");

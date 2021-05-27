@@ -228,3 +228,39 @@ async function MutlipleSymbolsFullData(currency1, currency2, localCurrency) {
   console.log(data);
   return data;
 }
+
+function intializeMiningObj(currency, data) {
+  coinData = data[currency].CoinInfo;
+  let miningObj = {
+    coinName: coinData.Name,
+    lauchDate: coinData.AssetLaunchDate,
+    blockNumber: coinData.BlockNumber,
+    blockReward: coinData.BlockReward,
+    blockTime: coinData.BlockTime,
+    maxSupply: coinData.NetHashesPerSecond,
+    totalCoinsMined: coinData.TotalCoinsMined,
+  };
+  return miningObj;
+}
+
+async function getMiningData(currency1, currency2, currCode) {
+  let url = `https://min-api.cryptocompare.com/data/blockchain/mining/calculator?fsyms=${currency1},${currency2}&tsyms=${currCode}`;
+  let coins = [];
+  coin1 = {};
+  coin2 = {};
+  let data = await fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.Data);
+      //console.log(coinData.AssetLaunchDate);
+      coin1 = intializeMiningObj(currency1, data.Data);
+      coin2 = intializeMiningObj(currency2, data.Data);
+      coins.push(coin1);
+      coins.push(coin2);
+      //console.log(coins);
+      return coins;
+    })
+    .catch((error) => console.log(error));
+
+  return data;
+}
