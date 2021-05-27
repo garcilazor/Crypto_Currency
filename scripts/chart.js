@@ -166,3 +166,34 @@ function monthPriceGraph(monthData) {
     },
   });
 }
+
+function MultiSymbolFullDataChart(chartData) {
+  console.log(chartData.currency1.data);
+  const data = {
+    labels: chartData.labels,
+    datasets: [
+      {
+        label: chartData.currency1.symbol,
+        data: chartData.currency1.data,
+        borderColor: "red",
+        backgroundColor: "red",
+      },
+      {
+        label: chartData.currency2.symbol,
+        data: chartData.currency2.data,
+        borderColor: "blue",
+        backgroundColor: "blue",
+      },
+    ],
+  };
+  var ctx = document.getElementById("multiSymbolFullData");
+  var myChart = new Chart(ctx, {
+    type: "bar",
+    data: data,
+    options: {
+      legend: {
+        position: "top",
+      },
+    },
+  });
+}
