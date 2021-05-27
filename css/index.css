@@ -20,3 +20,7 @@ img {
 #marketCap {
   min-height: 375px;
 }
+
+.carasouel-caption > * {
+  width: 100%;
+}
