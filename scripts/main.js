@@ -27,6 +27,7 @@ $(document).ready(function () {
   HistoricalDailyBlockChain("BTC").then((res) => {
     blockChainLineGraph("BTC", res);
   });
+  MutlipleSymbolsFullData("BTC", "ETH", "USD");
 });
 
 //getHistoricalData("BTC", "USD");

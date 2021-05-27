@@ -217,3 +217,14 @@ async function HistoricalDailyBlockChain(targetCurrency) {
     .catch((error) => console.log(error));
   return data;
 }
+
+async function MutlipleSymbolsFullData(currency1, currency2, localCurrency) {
+  let url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${currency1},${currency2}&tsyms=${localCurrency}`;
+  let data = await fetch(url)
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((error) => console.log(error));
+
+  console.log(data);
+  return data;
+}
