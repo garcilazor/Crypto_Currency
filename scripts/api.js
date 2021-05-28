@@ -144,7 +144,7 @@ async function getHistoricalData(coinSymbol, currencyCode, choice) {
 //fetches the top news articles for on cryptocurrencies
 async function getNewArticles() {
   let url = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`;
-  let container = document.querySelector(".carousel-inner");
+  let container = document.querySelector(".articles");
   let data = await fetch(url)
     .then((response) => response.json())
     .then((data) => {

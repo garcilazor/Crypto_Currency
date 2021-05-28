@@ -55,20 +55,41 @@
     <main>
       <div class="row justify-content-center">
         <div class="col-sm-12 title"><h1>Currency Comparison</h1></div>
-        <div class="col-md-5 graph_currency_one">
-          <canvas
-              id="graph_currency_one"
-              aria-label="donut chart"
-              role="img"
-            ></canvas>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row justify-content-center">
+              <div class="col-md-5 graph_currency_one">
+                <canvas
+                    id="graph_currency_one"
+                    aria-label="donut chart"
+                    role="img"
+                  ></canvas>
+
+              </div>
+              <div class="col-md-5 graph_currency_two">
+                <canvas
+                    id="graph_currency_two"
+                    aria-label="donut chart"
+                    role="img"
+                  ></canvas>
+              </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://blogs.sas.com/content/sastraining/files/2015/03/black_background.png" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <div class="col-md-5 graph_currency_two">
-          <canvas
-              id="graph_currency_two"
-              aria-label="donut chart"
-              role="img"
-            ></canvas>
-        </div>
+        
         <div class="col-md-5 crypto_currency_one">
           <p>
             <a
@@ -304,3 +325,4 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </body>
 </html>
+
