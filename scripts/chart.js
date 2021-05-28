@@ -186,9 +186,21 @@ function MultiSymbolFullDataChart(chartData) {
       },
     ],
   };
-  var canvas = document.getElementById("multiSymbolFullData");
+  var canvas = document.getElementById("graph_currency_one");
   let ctx = canvas.getContext("2d");
   var myChart = new Chart(ctx, {
+    type: "bar",
+    data: data,
+    options: {
+      responsive: true,
+      legend: {
+        position: "top",
+      },
+    },
+  });
+  var canvas1 = document.getElementById("graph_currency_two");
+  let ctx1 = canvas1.getContext("2d");
+  var myChart = new Chart(ctx1, {
     type: "bar",
     data: data,
     options: {
