@@ -62,7 +62,7 @@
             <a
               class="btn btn-primary"
               data-bs-toggle="collapse"
-              href="#collapseExample"
+              href="#miningTable"
               role="button"
               aria-expanded="false"
               aria-controls="collapseExample"
@@ -73,50 +73,149 @@
               class="btn btn-primary"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapseExample"
+              data-bs-target="#collapseTable2"
               aria-expanded="false"
               aria-controls="collapseExample"
             >
               Button with data-bs-target
             </button>
           </p>
-          <div class="collapse" id="collapseExample">
-            <div>
-              <table class="table table-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="collapse" id="collapseTable2">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Daily High</th>
+                  <th scope="col">Daily Low</th>
+                  <th scope="col">Supply</th>
+                  <th scope="col">Daily Volume</th>
+                  <th scope="col">Market Cap</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="price1"></td>
+                  <td id="dailyHigh1"></td>
+                  <td id="dailyLow1"></td>
+                  <td id="supply1"></td>
+                  <td id="dailyVolume1"></td>
+                  <td id="marketCap1"></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          <div class="collapse" id="miningTable">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Launch Date</th>
+                  <th scope="col">Block Number</th>
+                  <th scope="col">Block Reward</th>
+                  <th scope="col">Block Time</th>
+                  <th scope="col">Max Supply</th>
+                  <th scope="col">Net Hashes(per/s)</th>
+                  <th scope="col">Total Coins Mined</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="launchDate1"></td>
+                  <td id="blockNumber1"></td>
+                  <td id="blockReward1"></td>
+                  <td id="blockTime1"></td>
+                  <td id="maxSupply1"></td>
+                  <td id="netHashes1"></td>
+                  <td id="totalCoins1"></td>
+                </tr>
+              </tbody>
+            </table>
         </div>
-        <div class="col-md-5 crypto_currency_two"></div>
+          
+        </div> 
+        <!-- ///////////////////  =====================end of -->
+        <div class="col-md-5 crypto_currency_two">
+          <p>
+            <a
+              class="btn btn-primary"
+              data-bs-toggle="collapse"
+              href="#miningTable"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Link with href
+            </a>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTable2"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Button with data-bs-target
+            </button>
+          </p>
+          <div class="collapse" id="collapseTable2">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Daily High</th>
+                  <th scope="col">Daily Low</th>
+                  <th scope="col">Supply</th>
+                  <th scope="col">Daily Volume</th>
+                  <th scope="col">Market Cap</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="price1"></td>
+                  <td id="dailyHigh1"></td>
+                  <td id="dailyLow1"></td>
+                  <td id="supply1"></td>
+                  <td id="dailyVolume1"></td>
+                  <td id="marketCap1"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="collapse" id="miningTable">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Launch Date</th>
+                  <th scope="col">Block Number</th>
+                  <th scope="col">Block Reward</th>
+                  <th scope="col">Block Time</th>
+                  <th scope="col">Max Supply</th>
+                  <th scope="col">Net Hashes(per/s)</th>
+                  <th scope="col">Total Coins Mined</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="launchDate1"></td>
+                  <td id="blockNumber1"></td>
+                  <td id="blockReward1"></td>
+                  <td id="blockTime1"></td>
+                  <td id="maxSupply1"></td>
+                  <td id="netHashes1"></td>
+                  <td id="totalCoins1"></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
       </div>
+      <!-- ////// ===============================end of div -->
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   </body>
