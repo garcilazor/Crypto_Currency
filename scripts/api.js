@@ -44,10 +44,9 @@ async function getTopTenVolume(localCurrency) {
           marketCap: entry.RAW[localCurrency].MKTCAP,
         });
       });
-      $("#volume_header")
-        .append("(")
-        .append(topDict[0].currencyCode)
-        .append(")");
+      $("#volume_header").replaceWith(
+        "Top Currencies by Volume " + "(" + topDict[0].currencyCode + ")"
+      );
       topDict.forEach((entry, index) => {
         let listItem = document.getElementById(`item${index + 1}`);
         listItem.innerHTML =
