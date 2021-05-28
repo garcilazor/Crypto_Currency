@@ -32,9 +32,6 @@ function populateHomePageGraphs(coinSymbol) {
       });
     });
   });
-  HistoricalDailyBlockChain(coinSymbol).then((res) => {
-    blockChainLineGraph(coinSymbol, res);
-  });
 }
 
 function priceGraphs() {}
