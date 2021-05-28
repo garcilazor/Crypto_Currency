@@ -19,22 +19,25 @@ $(document).ready(function () {
     });
     getNewArticles();
     populateHomePageGraphs(coinSymbol);
-    getMiningData("BTC", "ETH", "USD");
   }
   // We are on compare page
   if ($("body").attr("id") === "compare") {
-    MutlipleSymbolsFullData("BTC", "ETH", "USD").then((res) => {
-      MultiSymbolFullDataChart(res);
+    getCurrencyCode().then(function (localCurrency) {
+      console.log(localCurrency);
+      let searchParams = new URLSearchParams(window.location.search);
+      if (searchParams.has("cur1") && searchParams.has("cur2")) {
+        // Parameters were passed in
+        let cur1 = searchParams.get("cur1");
+        let cur2 = searchParams.get("cur2");
+        MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
+          MultiSymbolFullDataChart(res);
+        });
+        getMiningData(cur1, cur2, localCurrency);
+        console.log(cur1, cur2);
+      } else {
+        // No parameters, populate with default values
+      }
     });
-    let searchParams = new URLSearchParams(window.location.search);
-    if (searchParams.has("cur1") && searchParams.has("cur2")) {
-      // Parameters were passed in
-      let cur1 = searchParams.get("cur1");
-      let cur2 = searchParams.get("cur2");
-      console.log(cur1, cur2);
-    } else {
-      // No parameters, populate with default values
-    }
     // HistoricalDailyBlockChain(coinSymbol).then((res) => {
     //   blockChainLineGraph(coinSymbol, res);
     // });
