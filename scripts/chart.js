@@ -45,6 +45,7 @@ function marketCap(topTen) {
       },
     ],
   };
+  $("#marketCap").replaceWith('<canvas id="marketCap"></canvas>');
   var ctx = document.getElementById("marketCap");
   var myChart = new Chart(ctx, {
     type: "doughnut",
@@ -81,6 +82,7 @@ function blockChainLineGraph(CoinName, input) {
       },
     ],
   };
+  $("#blocksMined").replaceWith('<canvas id="blocksMined"></canvas>');
   let canvas = document.getElementById("blocksMined");
   let ctx = canvas.getContext("2d");
   var myChart = new Chart(ctx, {
@@ -104,6 +106,7 @@ function dayPriceGraph(dayData) {
       },
     ],
   };
+  $("#day_graph").replaceWith('<canvas id="day_graph"></canvas>');
   var ctx = document.getElementById("day_graph");
   var myChart = new Chart(ctx, {
     type: "line",
@@ -129,6 +132,7 @@ function weekPriceGraph(weekData) {
       },
     ],
   };
+  $("#week_graph").replaceWith('<canvas id="week_graph"></canvas>');
   var ctx = document.getElementById("week_graph");
   var myChart = new Chart(ctx, {
     type: "line",
@@ -155,6 +159,7 @@ function monthPriceGraph(monthData) {
       },
     ],
   };
+  $("#month_graph").replaceWith('<canvas id="month_graph"></canvas>');
   var ctx = document.getElementById("month_graph");
   var myChart = new Chart(ctx, {
     type: "line",
