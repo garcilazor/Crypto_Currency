@@ -23,16 +23,18 @@ $(document).ready(function () {
   // We are on compare page
   if ($("body").attr("id") === "compare") {
     getCurrencyCode().then(function (localCurrency) {
-      console.log(localCurrency);
+      // console.log(localCurrency);
       let searchParams = new URLSearchParams(window.location.search);
       if (searchParams.has("cur1") && searchParams.has("cur2")) {
         // Parameters were passed in
-        let cur1 = searchParams.get("cur1");
-        let cur2 = searchParams.get("cur2");
+        let cur1 = searchParams.get("cur1").toUpperCase();
+        let cur2 = searchParams.get("cur2").toUpperCase();
         MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
           MultiSymbolFullDataChart(res);
         });
-        getMiningData(cur1, cur2, localCurrency);
+        getMiningData(cur1, cur2, localCurrency).then((miningObj) => {
+          poplateMiningTable(miningObj);
+        });
       } else {
         getTopTenVolume(localCurrency).then(function (topTenData) {
           topTenData.sort((a, b) => (a.coinPrice > b.coinPrice ? -1 : 1));
@@ -50,8 +52,10 @@ $(document).ready(function () {
               console.log(res)
             );
           });
+          getMiningData(cur1, cur2, localCurrency).then((miningObj) => {
+            poplateMiningTable(miningObj);
+          });
         });
-        // No parameters, populate with default values
       }
     });
     // HistoricalDailyBlockChain(coinSymbol).then((res) => {

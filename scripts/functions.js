@@ -34,4 +34,13 @@ function populateHomePageGraphs(coinSymbol) {
   });
 }
 
-function priceGraphs() {}
+function poplateMiningTable(miningObj) {
+  for (let i = 0; i < miningObj.length; i++) {
+    $("#launchDate" + (i + 1)).text(miningObj[i].launchDate);
+    $("#blockNumber" + (i + 1)).text(miningObj[i].blockNumber);
+    $("#blockReward" + (i + 1)).text(miningObj[i].blockReward);
+    $("#blockTime" + (i + 1)).text(miningObj[i].blockTime);
+    $("#maxSupply" + (i + 1)).text(miningObj[i].maxSupply);
+    $("#totalCoins" + (i + 1)).text(miningObj[i].totalCoinsMined);
+  }
+}
