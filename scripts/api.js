@@ -276,3 +276,16 @@ async function getMiningData(currency1, currency2, currCode) {
 
   return data;
 }
+
+async function pricingInfo(curr1, curr2, localCurrency) {
+  let url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${curr1},${curr2}&tsyms=${localCurrency}`;
+  let data = await fetch(url)
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((error) => console.log(error));
+
+  let dataArr = [];
+  console.log(data);
+
+  return dataArr;
+}
