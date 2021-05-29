@@ -45,11 +45,19 @@ $(document).ready(function () {
           MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
             MultiSymbolFullDataChart(res);
           });
+          getMiningData(cur1, cur2, localCurrency);
+          fetchCryptoCoinId(cur1, cur2).then((coinIds) => {
+            getCoinSocialMediaActivity(coinIds.coinCode1).then((res) =>
+              console.log(res)
+            );
+            getCoinSocialMediaActivity(coinIds.coinCode2).then((res) =>
+              console.log(res)
+            );
+          });
           getMiningData(cur1, cur2, localCurrency).then((miningObj) => {
             poplateMiningTable(miningObj);
           });
         });
-        // No parameters, populate with default values
       }
     });
     // HistoricalDailyBlockChain(coinSymbol).then((res) => {

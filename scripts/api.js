@@ -6,26 +6,25 @@ const CRYPTOCOMPAREAPI =
 // Needed for certain enpoints of the API
 // TODO: May be more effcient to save the coin, name, symbol to file
 //  Or find a way to async search repsonse and end early on success
-async function fetchCryptoCoinId(coinName, coinSymbol) {
-  let res = "";
+async function fetchCryptoCoinId(coinSymbol1, coinSymbol2) {
+  let res = {};
   let url = `https://min-api.cryptocompare.com/data/all/coinlist?summary=true&api_key=${CRYPTOCOMPAREAPI}`;
-  let coinId = await fetch(url)
+  let coinIds = await fetch(url)
     .then((response) => response.json())
     .then((data) => {
       Object.values(data.Data).map((entry) => {
-        if (
-          entry.Symbol === `${coinSymbol.toUpperCase()}` ||
-          entry.FullName.toUpperCase().match(
-            "\\b" + coinName.toUpperCase() + "\\b" !== -1
-          )
-        ) {
-          res = entry.Id;
+        if (entry.Symbol === `${coinSymbol1}`) {
+          res.coinCode1 = entry.Id;
+        }
+        if (entry.Symbol === `${coinSymbol2}`) {
+          res.coinCode2 = entry.Id;
         }
       });
       return res;
     })
     .catch((error) => console.log(error));
-  return coinId;
+  console.log(coinIds);
+  return coinIds;
 }
 
 async function getTopTenVolume(localCurrency) {
@@ -73,8 +72,7 @@ async function getCoinDataToTargetCurrency(currencyCode, targetCurrency) {
 
 // get social media presence of coin by either coin's name or coin symbol
 // Requires 2 API calls unfortunately, since one needs the coinId integer to use the social media endpoint of API
-async function getCoinSocialMediaActivity(coinName, coinSymbol) {
-  let coinId = await fetchCryptoCoinId(coinName, coinSymbol);
+async function getCoinSocialMediaActivity(coinId) {
   let url = `https://min-api.cryptocompare.com/data/social/coin/latest?coinId=${coinId}&api_key=${CRYPTOCOMPAREAPI}`;
   let data = await fetch(url)
     .then((response) => response.json())
