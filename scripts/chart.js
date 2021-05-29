@@ -173,7 +173,7 @@ function monthPriceGraph(monthData) {
 }
 
 function MultiSymbolFullDataChart(chartData) {
-  console.log(chartData.currency1.data);
+  // console.log(chartData.currency1.data);
   const data = {
     labels: chartData.labels,
     datasets: [

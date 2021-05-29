@@ -30,7 +30,9 @@ $(document).ready(function () {
         let cur1 = searchParams.get("cur1").toUpperCase();
         let cur2 = searchParams.get("cur2").toUpperCase();
         MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
+          //console.log(res);
           MultiSymbolFullDataChart(res);
+          pricingInfo(cur1, cur2, localCurrency);
         });
         getMiningData(cur1, cur2, localCurrency).then((miningObj) => {
           poplateMiningTable(miningObj);
