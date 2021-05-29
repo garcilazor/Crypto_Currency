@@ -23,7 +23,7 @@ async function fetchCryptoCoinId(coinSymbol1, coinSymbol2) {
       return res;
     })
     .catch((error) => console.log(error));
-  console.log(coinIds);
+  // console.log(coinIds);
   return coinIds;
 }
 async function getTopTenVolume(localCurrency) {

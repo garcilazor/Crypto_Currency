@@ -34,6 +34,22 @@ $(document).ready(function () {
           MultiSymbolFullDataChart(res);
           pricingInfo(cur1, cur2, localCurrency);
         });
+        fetchCryptoCoinId(cur1, cur2).then((coinIds) => {
+          getCoinSocialMediaActivity(coinIds.coinCode1).then((res) => {
+            if (res.General.Name === cur1) {
+              populateSocialMediaTable(res, 1);
+            } else {
+              populateSocialMediaTable(res, 2);
+            }
+          });
+          getCoinSocialMediaActivity(coinIds.coinCode2).then((res) => {
+            if (res.General.Name === cur2) {
+              populateSocialMediaTable(res, 2);
+            } else {
+              populateSocialMediaTable(res, 1);
+            }
+          });
+        });
         getMiningData(cur1, cur2, localCurrency).then((miningObj) => {
           poplateMiningTable(miningObj);
         });
