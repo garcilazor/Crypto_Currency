@@ -33,8 +33,16 @@ $(document).ready(function () {
           MultiSymbolFullDataChart(res);
         });
         getMiningData(cur1, cur2, localCurrency);
-        console.log(cur1, cur2);
       } else {
+        getTopTenVolume(localCurrency).then(function (topTenData) {
+          topTenData.sort((a, b) => (a.coinPrice > b.coinPrice ? -1 : 1));
+          let cur1 = topTenData[0].coinSymbol;
+          let cur2 = topTenData[1].coinSymbol;
+          MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
+            MultiSymbolFullDataChart(res);
+          });
+          getMiningData(cur1, cur2, localCurrency);
+        });
         // No parameters, populate with default values
       }
     });

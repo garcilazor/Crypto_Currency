@@ -44,14 +44,16 @@ async function getTopTenVolume(localCurrency) {
           marketCap: entry.RAW[localCurrency].MKTCAP,
         });
       });
-      $("#volume_header").replaceWith(
-        "Top Currencies by Volume " + "(" + topDict[0].currencyCode + ")"
-      );
-      topDict.forEach((entry, index) => {
-        let listItem = document.getElementById(`item${index + 1}`);
-        listItem.innerHTML =
-          "[" + entry.coinSymbol + "]" + " " + entry.coinName;
-      });
+      if ($("body").attr("id") === "home") {
+        $("#volume_header").replaceWith(
+          "Top Currencies by Volume " + "(" + topDict[0].currencyCode + ")"
+        );
+        topDict.forEach((entry, index) => {
+          let listItem = document.getElementById(`item${index + 1}`);
+          listItem.innerHTML =
+            "[" + entry.coinSymbol + "]" + " " + entry.coinName;
+        });
+      }
       return topDict;
     })
     .catch((error) => console.log(error));
