@@ -129,26 +129,73 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Price</th>
-                  <th scope="col">Daily High</th>
-                  <th scope="col">Daily Low</th>
-                  <th scope="col">Supply</th>
-                  <th scope="col">Daily Volume</th>
+                  <th scope="col">Change in Day</th>
                   <th scope="col">Market Cap</th>
+                  <th scope="col">Volume</th>
+                  <th scope="col">Supply</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
                   <td id="price1"></td>
-                  <td id="dailyHigh1"></td>
-                  <td id="dailyLow1"></td>
-                  <td id="supply1"></td>
-                  <td id="dailyVolume1"></td>
+                  <td id="dailyChange1"></td>
                   <td id="marketCap1"></td>
+                  <td id="volume1"></td>
+                  <td id="supply1"></td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">24 Hour Change</th>
+                  <th scope="col">24 Hour Change (pct)</th>
+                  <th scope="col">24 Hour High</th>
+                  <th scope="col">24 Hour Low</th>
+                  <th scope="col">24 Hour Volume</th>
+                  <th scope="col">24 Hour Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="24hourChange1"></td>
+                  <td id="24hourChanePct1"></td>
+                  <td id="24hourHigh1"></td>
+                  <td id="24hourLow1"></td>
+                  <td id="24hourVolume"></td>
+                  <td id="24hourTotal"></td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Hourly Change</th>
+                  <th scope="col">Hourly Change (pct)</th>
+                  <th scope="col">Hourly High</th>
+                  <th scope="col">Hourly Low</th>
+                  <th scope="col">Hourly Volume</th>
+                  <th scope="col">Hourly Volume Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="hourlyChange1"></td>
+                  <td id="hourlyChangePct1"></td>
+                  <td id="hourlyHigh1"></td>
+                  <td id="hourlyLow1"></td>
+                  <td id="hourlyVolume1"></td>
+                  <td id="hourlyVolumeTotal1"></td>
                 </tr>
               </tbody>
             </table>
           </div>
+          
           <div class="collapse" id="miningTable">
             <table class="table table-dark">
               <thead>
@@ -243,22 +290,68 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Price</th>
-                  <th scope="col">Daily High</th>
-                  <th scope="col">Daily Low</th>
-                  <th scope="col">Supply</th>
-                  <th scope="col">Daily Volume</th>
+                  <th scope="col">Change in Day</th>
                   <th scope="col">Market Cap</th>
+                  <th scope="col">Volume</th>
+                  <th scope="col">Supply</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
                   <td id="price1"></td>
-                  <td id="dailyHigh1"></td>
-                  <td id="dailyLow1"></td>
-                  <td id="supply1"></td>
-                  <td id="dailyVolume1"></td>
+                  <td id="dailyChange1"></td>
                   <td id="marketCap1"></td>
+                  <td id="volume1"></td>
+                  <td id="supply1"></td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">24 Hour Change</th>
+                  <th scope="col">24 Hour Change (pct)</th>
+                  <th scope="col">24 Hour High</th>
+                  <th scope="col">24 Hour Low</th>
+                  <th scope="col">24 Hour Volume</th>
+                  <th scope="col">24 Hour Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="24hourChange1"></td>
+                  <td id="24hourChanePct1"></td>
+                  <td id="24hourHigh1"></td>
+                  <td id="24hourLow1"></td>
+                  <td id="24hourVolume"></td>
+                  <td id="24hourTotal"></td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Hourly Change</th>
+                  <th scope="col">Hourly Change (pct)</th>
+                  <th scope="col">Hourly High</th>
+                  <th scope="col">Hourly Low</th>
+                  <th scope="col">Hourly Volume</th>
+                  <th scope="col">Hourly Volume Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="hourlyChange1"></td>
+                  <td id="hourlyChangePct1"></td>
+                  <td id="hourlyHigh1"></td>
+                  <td id="hourlyLow1"></td>
+                  <td id="hourlyVolume1"></td>
+                  <td id="hourlyVolumeTotal1"></td>
                 </tr>
               </tbody>
             </table>
