@@ -35,10 +35,12 @@ function populateHomePageGraphs(coinSymbol) {
 }
 
 function poplateMiningTable(miningObj) {
-  $("#launchDate1").text(miningObj[0].launchDate);
-  $("#blockNumber1").text(miningObj[0].blockNumber);
-  $("#blockReward1").text(miningObj[0].blockReward);
-  $("#blockTime1").text(miningObj[0].blockTime);
-  $("#maxSupply1").text(miningObj[0].maxSupply);
-  $("#totalCoins1").text(miningObj[0].totalCoinsMined);
+  for (let i = 0; i < miningObj.length; i++) {
+    $("#launchDate" + (i + 1)).text(miningObj[i].launchDate);
+    $("#blockNumber" + (i + 1)).text(miningObj[i].blockNumber);
+    $("#blockReward" + (i + 1)).text(miningObj[i].blockReward);
+    $("#blockTime" + (i + 1)).text(miningObj[i].blockTime);
+    $("#maxSupply" + (i + 1)).text(miningObj[i].maxSupply);
+    $("#totalCoins" + (i + 1)).text(miningObj[i].totalCoinsMined);
+  }
 }
