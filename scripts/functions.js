@@ -44,3 +44,12 @@ function poplateMiningTable(miningObj) {
     $("#totalCoins" + (i + 1)).text(miningObj[i].totalCoinsMined);
   }
 }
+
+function populateSocialMediaTable(socialData, i) {
+  $("#fbLikes" + i).text(socialData.Facebook.likes);
+  $("#twitStat" + i).text(socialData.Twitter.statuses);
+  $("#twitFol" + i).text(socialData.Twitter.followers);
+  $("#redditPost" + i).text(socialData.Reddit.posts_per_day);
+  $("#repoStars" + i).text(socialData.CodeRepository.List[0].stars);
+  $("#forumView" + i).text(socialData.CryptoCompare.PageViewsSplit.Forum);
+}
