@@ -249,7 +249,7 @@ function intializeMiningObj(currency, data) {
   coinData = data[currency].CoinInfo;
   let miningObj = {
     coinName: coinData.Name,
-    lauchDate: coinData.AssetLaunchDate,
+    launchDate: coinData.AssetLaunchDate,
     blockNumber: coinData.BlockNumber,
     blockReward: coinData.BlockReward,
     blockTime: coinData.BlockTime,
@@ -267,7 +267,7 @@ async function getMiningData(currency1, currency2, currCode) {
   let data = await fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.Data);
+      //console.log(data.Data);
       //console.log(coinData.AssetLaunchDate);
       coin1 = intializeMiningObj(currency1, data.Data);
       coin2 = intializeMiningObj(currency2, data.Data);

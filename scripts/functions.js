@@ -34,4 +34,11 @@ function populateHomePageGraphs(coinSymbol) {
   });
 }
 
-function priceGraphs() {}
+function poplateMiningTable(miningObj) {
+  $("#launchDate1").text(miningObj[0].launchDate);
+  $("#blockNumber1").text(miningObj[0].blockNumber);
+  $("#blockReward1").text(miningObj[0].blockReward);
+  $("#blockTime1").text(miningObj[0].blockTime);
+  $("#maxSupply1").text(miningObj[0].maxSupply);
+  $("#totalCoins1").text(miningObj[0].totalCoinsMined);
+}
