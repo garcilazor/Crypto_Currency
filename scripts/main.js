@@ -3,8 +3,8 @@ $(document).ready(function () {
   if ($("body").attr("id") === "home") {
     let coinSymbol = null;
     $("#compare-button").click(function () {
-      let cur1 = $("#compare1").val().toString();
-      let cur2 = $("#compare2").val().toString();
+      let cur1 = $("#compare1").val().toString().toUpperCase();
+      let cur2 = $("#compare2").val().toString().toUpperCase();
       let url =
         "./compare.html" +
         "?cur1=" +
