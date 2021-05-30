@@ -277,15 +277,71 @@ async function getMiningData(currency1, currency2, currCode) {
   return data;
 }
 
-async function pricingInfo(curr1, curr2, localCurrency) {
+async function getPricingInfo(curr1, curr2, localCurrency) {
   let url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${curr1},${curr2}&tsyms=${localCurrency}`;
+  let dataArr = [];
+  let labels = ["general", "24hour", "hour"];
   let data = await fetch(url)
     .then((response) => response.json())
-    .then((data) => data)
-    .catch((error) => console.log(error));
+    .then((pricingData) => {
+      console.log(pricingData);
+      Object.values(pricingData.DISPLAY[curr1]).map((entry) => {
+        dataArr.currency1 = {
+          //pricing table
+          mktCap: entry.MKTCAP,
+          price: entry.PRICE,
+          supply: entry.SUPPLY,
+          dayChange: entry.CHANGEDAY,
+          volume: entry.VOLUME,
 
-  let dataArr = [];
-  console.log(data);
+          //24hour table
+          "24hourChange": entry.CHANGE24HOUR,
+          "24hourChangePct": entry.CHANGE24HOURPCT,
+          "24hourHigh": entry.HIGH24HOUR,
+          "24hourLow": entry.LOW24HOUR,
+          "24hourVolume": entry.VOLUME24,
+          "24hourVolumeTO": entry.VOLUME24HOURTO,
+
+          //hourly table
+          hourChange: entry.CHANGEHOUR,
+          hourChangePct: entry.CHANGEHOURPCT,
+          hourHigh: entry.HIGHHOUR,
+          hourLow: entry.LOWHOUR,
+          hourVolume: entry.VOLUMEHOUR,
+          hourVolumeTO: entry.VOLUMEHOURTO,
+        };
+      });
+
+      Object.values(pricingData.DISPLAY[curr2]).map((entry) => {
+        dataArr.currency2 = {
+          //pricing table
+          mktCap: entry.MKTCAP,
+          price: entry.PRICE,
+          supply: entry.SUPPLY,
+          dayChange: entry.CHANGEDAY,
+          volume: entry.VOLUME,
+
+          //24hour table
+          "24hourChange": entry.CHANGE24HOUR,
+          "24hourChangePct": entry.CHANGE24HOURPCT,
+          "24hourHigh": entry.HIGH24HOUR,
+          "24hourLow": entry.LOW24HOUR,
+          "24hourVolume": entry.VOLUME24,
+          "24hourVolumeTO": entry.VOLUME24HOURTO,
+
+          //hourly table
+          hourChange: entry.CHANGEHOUR,
+          hourChangePct: entry.CHANGEHOURPCT,
+          hourHigh: entry.HIGHHOUR,
+          hourLow: entry.LOWHOUR,
+          hourVolume: entry.VOLUMEHOUR,
+          hourVolumeTO: entry.VOLUMEHOURTO,
+        };
+
+        console.log(dataArr);
+      });
+    })
+    .catch((error) => console.log(error));
 
   return dataArr;
 }
