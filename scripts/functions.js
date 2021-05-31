@@ -16,10 +16,7 @@ function populateHomePageGraphs(coinSymbol) {
       marketCap(topTenData);
       if (coinSymbol === null) {
         coinSymbol = topTenData[0].coinSymbol;
-      } else {
-        // coinSymbol = localStorage.getItem("coinSymbol");
       }
-
       getHistoricalData(coinSymbol, code, "day").then(function (dayData) {
         //console.log(dayData);
         dayPriceGraph(dayData);

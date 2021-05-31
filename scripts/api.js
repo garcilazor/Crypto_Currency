@@ -1,6 +1,8 @@
 const CRYPTOCOMPAREAPI =
   "884dab4e1acc11768097bbbb4e11b0a0e04e167297aa7d11437fa5922e4b5e51";
 
+const LUNARCRUSHAPI = "6axkozlibjegqwgg6bmi";
+
 // Get the CoinID from crytocompare based on the name or symbol
 // An attempt to find the matching coing Asynchronously
 // Needed for certain enpoints of the API
@@ -346,4 +348,26 @@ async function getPricingInfo(curr1, curr2, localCurrency) {
     .catch((error) => console.log(error));
 
   return dataArr;
+}
+
+// Get most engaged influencers for the 2 coins passed into coin{1,2} arguments
+async function getInfluencerData(coin1, coin2, limit = 10, num_days = 30) {
+  urlCoin1 = `https://api.lunarcrush.com/v2?data=influencers&key=${LUNARCRUSHAPI}&num_days=${num_days}&days=7&symbol=${coin1}&limit=${limit}`;
+  urlCoin2 = `https://api.lunarcrush.com/v2?data=influencers&key=${LUNARCRUSHAPI}&num_days=${num_days}&days=7&symbol=${coin2}&limit=${limit}`;
+  let data = {};
+
+  data.coin1 = await fetch(urlCoin1)
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => console.log(error));
+  data.coin2 = await fetch(urlCoin2)
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => console.log(error));
+
+  return data;
 }

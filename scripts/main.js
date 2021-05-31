@@ -52,6 +52,9 @@ $(document).ready(function () {
             }
           });
         });
+        getInfluencerData(cur1, cur2, 10, 7).then((res) => {
+          InfluencerRadarGraph(res);
+        });
         getMiningData(cur1, cur2, localCurrency).then((miningObj) => {
           poplateMiningTable(miningObj);
         });
@@ -85,6 +88,9 @@ $(document).ready(function () {
           });
           getMiningData(cur1, cur2, localCurrency).then((miningObj) => {
             poplateMiningTable(miningObj);
+          });
+          getInfluencerData(cur1, cur2, 10, 7).then((res) => {
+            InfluencerRadarGraph(res);
           });
         });
       }

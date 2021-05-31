@@ -216,3 +216,79 @@ function MultiSymbolFullDataChart(chartData) {
     },
   });
 }
+
+function InfluencerRadarGraph(influencerData) {
+  //console.log(influencerData);
+  let names1 = [];
+  let engagement1 = [];
+  let names2 = [];
+  let engagement2 = [];
+  // console.log(influencerData);
+  influencerData.coin1.data.map((entry) => {
+    names1.push(entry.display_name);
+    engagement1.push(entry.engagement);
+  });
+  influencerData.coin2.data.map((entry) => {
+    names2.push(entry.display_name);
+    engagement2.push(entry.engagement);
+  });
+  // console.log(names);
+  const data1 = {
+    labels: names1,
+    datasets: [
+      {
+        label: `${influencerData.coin1.config.symbol}`,
+        data: engagement1,
+        fill: true,
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        borderColor: "rgb(255, 99, 132)",
+        pointBackgroundColor: "rgb(255, 99, 132)",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgb(255, 99, 132)",
+      },
+    ],
+  };
+  const data2 = {
+    labels: names2,
+    datasets: [
+      {
+        label: `${influencerData.coin2.config.symbol}`,
+        data: engagement2,
+        fill: true,
+        backgroundColor: "rgba(54, 162, 235, 0.2)",
+        borderColor: "rgb(54, 162, 235)",
+        pointBackgroundColor: "rgb(54, 162, 235)",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgb(54, 162, 235)",
+      },
+    ],
+  };
+  $("#influencer_graph1").replaceWith(
+    '<canvas id="influencer_graph1"></canvas>'
+  );
+  var ctx = document.getElementById("influencer_graph1");
+  var myChart = new Chart(ctx, {
+    type: "radar",
+    data: data1,
+    options: {
+      legend: {
+        position: "top",
+      },
+    },
+  });
+  $("#influencer_graph2").replaceWith(
+    '<canvas id="influencer_graph2"></canvas>'
+  );
+  var ctx = document.getElementById("influencer_graph2");
+  var myChart = new Chart(ctx, {
+    type: "radar",
+    data: data2,
+    options: {
+      legend: {
+        position: "top",
+      },
+    },
+  });
+}
