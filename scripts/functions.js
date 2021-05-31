@@ -16,7 +16,6 @@ function populateHomePageGraphs(coinSymbol) {
       marketCap(topTenData);
       if (coinSymbol === null) {
         coinSymbol = topTenData[0].coinSymbol;
-      } else {
         $("#home_title").text("Currency data for: " + coinSymbol);
       }
 
