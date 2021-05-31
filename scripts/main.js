@@ -32,7 +32,9 @@ $(document).ready(function () {
         MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
           //console.log(res);
           MultiSymbolFullDataChart(res);
-          getPricingInfo(cur1, cur2, localCurrency);
+          getPricingInfo(cur1, cur2, localCurrency).then((pricingData) => {
+            populatePricingTables(pricingData);
+          });
         });
         fetchCryptoCoinId(cur1, cur2).then((coinIds) => {
           getCoinSocialMediaActivity(coinIds.coinCode1).then((res) => {
@@ -61,7 +63,9 @@ $(document).ready(function () {
           MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
             MultiSymbolFullDataChart(res);
           });
-          getPricingInfo(cur1, cur2, localCurrency);
+          getPricingInfo(cur1, cur2, localCurrency).then((pricingData) => {
+            populatePricingTables(pricingData);
+          });
           getMiningData(cur1, cur2, localCurrency);
           fetchCryptoCoinId(cur1, cur2).then((coinIds) => {
             getCoinSocialMediaActivity(coinIds.coinCode1).then((res) => {

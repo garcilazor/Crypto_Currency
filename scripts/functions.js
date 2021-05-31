@@ -53,3 +53,29 @@ function populateSocialMediaTable(socialData, i) {
   $("#repoStars" + i).text(socialData.CodeRepository.List[0].stars);
   $("#forumView" + i).text(socialData.CryptoCompare.PageViewsSplit.Forum);
 }
+
+function populatePricingTables(pricingData) {
+  for (let i = 0; i < pricingData.length; i++) {
+    console.log(pricingData[i]);
+    //general info pricing tables
+    $("#price" + (i + 1)).text(pricingData[i].price);
+    $("#dailyChange" + (i + 1)).text(pricingData[i].dayChange);
+    $("#marketCap" + (i + 1)).text(pricingData[i].mktCap);
+    $("#volume" + (i + 1)).text(pricingData[i].volume);
+    $("#supply" + (i + 1)).text(pricingData[i].supply);
+    //24hourtable
+    $("#24hourChange" + (i + 1)).text(pricingData[i]["24hourChange"]);
+    $("#24hourChangePct" + (i + 1)).text(pricingData[i]["24hourChangePct"]);
+    $("#24hourHigh" + (i + 1)).text(pricingData[i]["24hourHigh"]);
+    $("#24hourLow" + (i + 1)).text(pricingData[i]["24hourLow"]);
+    $("#24hourVolume" + (i + 1)).text(pricingData[i]["24hourVolume"]);
+    $("#24hourTotal" + (i + 1)).text(pricingData[i]["24hourVolumeTO"]);
+    //hourly table
+    $("#hourlyChange" + (i + 1)).text(pricingData[i]["hourChange"]);
+    $("#hourlyChangePct" + (i + 1)).text(pricingData[i]["hourChangePct"]);
+    $("#hourlyHigh" + (i + 1)).text(pricingData[i]["hourHigh"]);
+    $("#hourlyLow" + (i + 1)).text(pricingData[i]["hourLow"]);
+    $("#hourlyVolume" + (i + 1)).text(pricingData[i]["hourVolume"]);
+    $("#hourlyVolumeTotal" + (i + 1)).text(pricingData[i]["hourVolumeTO"]);
+  }
+}
