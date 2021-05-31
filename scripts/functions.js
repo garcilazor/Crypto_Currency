@@ -60,6 +60,7 @@ function populatePricingTables(pricingData) {
     //general info pricing tables
     $("#price" + (i + 1)).text(pricingData[i].price);
     $("#dailyChange" + (i + 1)).text(pricingData[i].dayChange);
+    $("#dailyChangePct" + (i + 1)).text(pricingData[i].dayChange);
     $("#marketCap" + (i + 1)).text(pricingData[i].mktCap);
     $("#volume" + (i + 1)).text(pricingData[i].volume);
     $("#supply" + (i + 1)).text(pricingData[i].supply);
