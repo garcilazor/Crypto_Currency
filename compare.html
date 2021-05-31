@@ -55,7 +55,7 @@
     <main>
       <div class="row justify-content-center">
         <div class="col-sm-12 title"><h1>Currency Comparison</h1></div>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row justify-content-center">
@@ -77,53 +77,59 @@
               </div>
             </div>
             <div class="carousel-item">
-              <img src="https://blogs.sas.com/content/sastraining/files/2015/03/black_background.png" class="d-block w-100" alt="...">
+              <img src="https://blogs.sas.com/content/sastraining/files/2015/03/black_background.png" class="d-block w-100" alt="">
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+        <div class="row">
+        <div class="col-lg-12 mb-1">
+          
+          <a
+          class="btn btn-dark"
+          data-bs-toggle="collapse"
+          href="#general"
+          role="button"
+          aria-expanded="false"
+          aria-controls="general"
+        >
+          Pricing Data
+        </a>
+        <button
+          class="btn btn-dark"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#miningTable"
+          aria-expanded="false"
+          aria-controls="miningTable"
+        >
+          Mining Data
+        </button>
+        <button
+          class="btn btn-dark"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#socialTable"
+          aria-expanded="false"
+          aria-controls="socialTable"
+        >
+          Social Data
+        </button>
+        </div>
+      </div>
         
+        <div class="row">
         <div class="col-lg-6 crypto_currency_one">
-          <p>
-            <a
-              class="btn btn-dark"
-              data-bs-toggle="collapse"
-              href="#miningTable"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              Pricing Data
-            </a>
-            <button
-              class="btn btn-dark"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTable2"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              Mining Data
-            </button>
-            <button
-              class="btn btn-dark"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#socialTable1"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              Social Data
-            </button>
-          </p>
-          <div class="collapse" id="collapseTable2">
+          
+        
+          <div class="collapse" id="general">
             <table class="table table-dark">
               <thead>
                 <tr>
@@ -224,7 +230,7 @@
               </tbody>
             </table>
         </div>
-        <div class="collapse" id="socialTable1">
+        <div class="collapse" id="socialTable">
             <table class="table table-dark">
               <thead>
                 <tr>
@@ -252,41 +258,11 @@
           </div>
           
         </div> 
-        <!-- ///////////////////  =====================end of -->
-        <div class="col-md-6 crypto_currency_two">
-          <p>
-            <a
-              class="btn btn-dark"
-              data-bs-toggle="collapse"
-              href="#miningTable"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              Pricing Data
-            </a>
-            <button
-              class="btn btn-dark"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTable2"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              Mining Data
-            </button>
-            <button
-              class="btn btn-dark"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#socialTable2"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              Social Data
-            </button>
-          </p>
-          <div class="collapse" id="collapseTable2">
+        <!-- ///////////////////  =====================end of above -->
+      
+        <div class="col-lg-6 crypto_currency_two">
+          
+          <div class="collapse" id="general">
             <table class="table table-dark">
               <thead>
                 <tr>
@@ -386,7 +362,7 @@
               </tbody>
             </table>
         </div>
-        <div class="collapse" id="socialTable1">
+        <div class="collapse" id="socialTable">
             <table class="table table-dark">
               <thead>
                 <tr>
@@ -413,7 +389,9 @@
             </table>
           </div>
       </div>
+    </div>
       <!-- ////// ===============================end of div -->
+   
               <canvas
                 id="influencer_graph1"
                 aria-label="graph of influencer engagment"
