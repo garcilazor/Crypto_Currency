@@ -54,6 +54,10 @@ function marketCap(topTen) {
       legend: {
         position: "bottom",
       },
+      title: {
+        display: true,
+        text: "Market Cap",
+      },
       maintainAspectRatio: false,
     },
   });

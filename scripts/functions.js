@@ -17,7 +17,7 @@ function populateHomePageGraphs(coinSymbol) {
       if (coinSymbol === null) {
         coinSymbol = topTenData[0].coinSymbol;
       } else {
-        // coinSymbol = localStorage.getItem("coinSymbol");
+        $("#home_title").text("Currency data for: " + coinSymbol);
       }
 
       getHistoricalData(coinSymbol, code, "day").then(function (dayData) {

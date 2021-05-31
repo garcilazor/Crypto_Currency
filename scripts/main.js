@@ -3,19 +3,26 @@ $(document).ready(function () {
   if ($("body").attr("id") === "home") {
     let coinSymbol = null;
     $("#compare-button").click(function () {
+      let url = null;
       let cur1 = $("#compare1").val().toString().toUpperCase();
       let cur2 = $("#compare2").val().toString().toUpperCase();
-      let url =
-        "./compare.html" +
-        "?cur1=" +
-        encodeURIComponent(cur1) +
-        "&cur2=" +
-        encodeURIComponent(cur2);
+      if (!cur1 || !cur2) {
+        url = "./compare.html";
+        window.location.href = url;
+      } else {
+        url =
+          "./compare.html" +
+          "?cur1=" +
+          encodeURIComponent(cur1) +
+          "&cur2=" +
+          encodeURIComponent(cur2);
+      }
       window.location.href = url;
     });
     $("#search-button").click(function () {
       coinSymbol = $("#search-content").val();
       populateHomePageGraphs(coinSymbol);
+      $("#home_title").text("Currency data for: " + coinSymbol);
     });
     getNewArticles();
     populateHomePageGraphs(coinSymbol);
@@ -29,6 +36,9 @@ $(document).ready(function () {
         // Parameters were passed in
         let cur1 = searchParams.get("cur1").toUpperCase();
         let cur2 = searchParams.get("cur2").toUpperCase();
+        $("#compare_title").text(
+          "Currency Comparison: " + cur1 + " vs " + cur2
+        );
         MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
           //console.log(res);
           MultiSymbolFullDataChart(res);
@@ -63,6 +73,9 @@ $(document).ready(function () {
           topTenData.sort((a, b) => (a.coinPrice > b.coinPrice ? -1 : 1));
           let cur1 = topTenData[0].coinSymbol;
           let cur2 = topTenData[1].coinSymbol;
+          $("#compare_title").text(
+            "Currency Comparison: " + cur1 + " vs " + cur2
+          );
           MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
             MultiSymbolFullDataChart(res);
           });
