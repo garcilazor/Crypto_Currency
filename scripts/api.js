@@ -371,3 +371,19 @@ async function getInfluencerData(coin1, coin2, limit = 10, num_days = 30) {
 
   return data;
 }
+
+async function getMiningEquipment() {
+  url = `https://min-api.cryptocompare.com/data/mining/equipment/general?api_key=${CRYPTOCOMPAREAPI}`;
+
+  let data = await fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => console.log(error));
+
+  console.log(data);
+  constructMiningEquipmentObject(data);
+
+  return data;
+}

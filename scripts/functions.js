@@ -77,3 +77,32 @@ function populatePricingTables(pricingData) {
     $("#hourlyVolumeTotal" + (i + 1)).text(pricingData[i]["hourVolumeTO"]);
   }
 }
+
+function constructMiningEquipmentObject(data) {
+  let sortedData = sortByHashesPerSecond(data);
+  let objectArray = [];
+  for (let i = 0; i < 10; i++) {
+    let constructedObj = {
+      name: sortedData[i].Name,
+      cost: sortedData[i].Cost,
+      powerConsumption: sortedData[i].PowerConsumption,
+      hashesPerSecond: sortedData[i].HashesPerSecond,
+    };
+    objectArray.push(constructedObj);
+  }
+  console.log("sorted constructed data", objectArray);
+}
+
+function sortByHashesPerSecond(data) {
+  let sortable = Object.values(data.Data);
+  sortable.sort((a, b) =>
+    parseInt(a.HashesPerSecond) > parseInt(b.HashesPerSecond) ? -1 : 1
+  );
+  return sortable;
+}
+
+function constructWordCloud(coin) {
+  $(
+    `<iframe src="https://lunarcrush.com/widgets/wordcloud?symbol=${coin}&interval=1&key=6axkozlibjegqwgg6bmi Week&animation=false&theme=dark" id="wordcloud" frameBorder="0" border="0" cellspacing="0" scrolling="no" style="width: 100%; height: 300px;"></iframe>`
+  ).appendTo("#wordCloud");
+}
