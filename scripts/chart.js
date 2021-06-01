@@ -208,6 +208,9 @@ function dayPriceGraph(dayData) {
             },
           },
         ],
+        chartArea: {
+          backgroundColor: "red",
+        },
       },
     },
   });

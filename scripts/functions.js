@@ -83,3 +83,46 @@ function populatePricingTables(pricingData) {
     $("#hourlyVolumeTotal" + (i + 1)).text(pricingData[i]["hourVolumeTO"]);
   }
 }
+
+function miningDataClick() {
+  if ($("#miningData").attr("aria-expanded") === "true") {
+    // if ($("#miningData").attr("aria-expanded") === "true") {
+    let className = $("#pricingData").attr("class") + " collapsed";
+    $("#pricingData").attr("class", className);
+    $("#pricingData").attr("aria-expanded", "false");
+    $(".multiPricing").attr("class", "collapse multiPricing");
+    className = $("#socialData").attr("class") + " collapsed";
+    $("#socialData").attr("class", className);
+    $("#socialData").attr("aria-expanded", "false");
+    $(".multiSocial").attr("class", "collapse multiSocial");
+  }
+}
+
+function socialDataClick() {
+  if ($("#socialData").attr("aria-expanded") === "true") {
+    // if ($("#miningData").attr("aria-expanded") === "true") {
+    let className = $("#pricingData").attr("class") + " collapsed";
+    $("#pricingData").attr("class", className);
+    $("#pricingData").attr("aria-expanded", "false");
+    $(".multiPricing").attr("class", "collapse multiPricing");
+
+    className = $("#miningData").attr("class") + " collapsed";
+    $("#miningData").attr("class", className);
+    $("#miningData").attr("aria-expanded", "false");
+    $(".multiMining").attr("class", "collapse multiMining");
+  }
+}
+
+function pricingDataClick() {
+  if ($("#pricingData").attr("aria-expanded") === "true") {
+    // if ($("#miningData").attr("aria-expanded") === "true") {
+    let className = $("#miningData").attr("class") + " collapsed";
+    $("#miningData").attr("class", className);
+    $("#miningData").attr("aria-expanded", "false");
+    $(".multiMining").attr("class", "collapse multiMining");
+    className = $("#socialData").attr("class") + " collapsed";
+    $("#socialData").attr("class", className);
+    $("#socialData").attr("aria-expanded", "false");
+    $(".multiSocial").attr("class", "collapse multiSocial");
+  }
+}

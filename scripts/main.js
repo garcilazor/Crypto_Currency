@@ -96,6 +96,9 @@ $(document).ready(function () {
         getMiningData(cur1, cur2, localCurrency).then((miningObj) => {
           poplateMiningTable(miningObj);
         });
+        //$("#pricingData").click(pricingDataClick());
+        // $("#miningData").click(miningDataClick());
+        // $("#socialData").click(socialDataClick());
       } else {
         getTopTenVolume(localCurrency).then(function (topTenData) {
           topTenData.sort((a, b) => (a.coinPrice > b.coinPrice ? -1 : 1));
@@ -142,6 +145,9 @@ $(document).ready(function () {
         });
       }
     });
+    $("#pricingData").click(pricingDataClick);
+    $("#miningData").click(miningDataClick);
+    $("#socialData").click(socialDataClick);
   }
 });
 
