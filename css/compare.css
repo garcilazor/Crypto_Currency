@@ -2,3 +2,42 @@ h1,
 h2 {
   color: white;
 }
+
+h2 {
+  text-align: center;
+}
+
+#compareTable1,
+#compareTable2 {
+  display: none;
+}
+
+.table {
+  background-color: #10131b;
+  border: none;
+}
+
+.pricingTable {
+  color: #f25f5c;
+}
+#pricingData:hover {
+  color: #f25f5c;
+}
+
+#socialData:hover {
+  color: #ffe066;
+}
+.socialTable {
+  color: #ffe066;
+}
+
+#miningData:hover {
+  color: #8fb339;
+}
+.miningTable {
+  color: #8fb339;
+}
+
+.btn {
+  background-color: #10131b;
+}

@@ -86,6 +86,8 @@ function populatePricingTables(pricingData) {
 
 function miningDataClick() {
   if ($("#miningData").attr("aria-expanded") === "true") {
+    $("#compareTable1").show();
+    $("#compareTable2").show();
     // if ($("#miningData").attr("aria-expanded") === "true") {
     let className = $("#pricingData").attr("class") + " collapsed";
     $("#pricingData").attr("class", className);
@@ -95,11 +97,16 @@ function miningDataClick() {
     $("#socialData").attr("class", className);
     $("#socialData").attr("aria-expanded", "false");
     $(".multiSocial").attr("class", "collapse multiSocial");
+  } else {
+    $("#compareTable1").hide();
+    $("#compareTable2").hide();
   }
 }
 
 function socialDataClick() {
   if ($("#socialData").attr("aria-expanded") === "true") {
+    $("#compareTable1").show();
+    $("#compareTable2").show();
     // if ($("#miningData").attr("aria-expanded") === "true") {
     let className = $("#pricingData").attr("class") + " collapsed";
     $("#pricingData").attr("class", className);
@@ -110,11 +117,16 @@ function socialDataClick() {
     $("#miningData").attr("class", className);
     $("#miningData").attr("aria-expanded", "false");
     $(".multiMining").attr("class", "collapse multiMining");
+  } else {
+    $("#compareTable1").hide();
+    $("#compareTable2").hide();
   }
 }
 
 function pricingDataClick() {
   if ($("#pricingData").attr("aria-expanded") === "true") {
+    $("#compareTable1").show();
+    $("#compareTable2").show();
     // if ($("#miningData").attr("aria-expanded") === "true") {
     let className = $("#miningData").attr("class") + " collapsed";
     $("#miningData").attr("class", className);
@@ -124,5 +136,8 @@ function pricingDataClick() {
     $("#socialData").attr("class", className);
     $("#socialData").attr("aria-expanded", "false");
     $(".multiSocial").attr("class", "collapse multiSocial");
+  } else {
+    $("#compareTable1").hide();
+    $("#compareTable2").hide();
   }
 }

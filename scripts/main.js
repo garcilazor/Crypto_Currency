@@ -61,6 +61,9 @@ $(document).ready(function () {
         $("#compare_title").text(
           "Currency Comparison: " + cur1 + " vs " + cur2
         );
+        $("#compareTable1").text(cur1);
+        $("#compareTable2").text(cur2);
+
         HistoricalDailyBlockChain(cur1).then((res) => {
           blockChainLineGraph(cur1, 1, res);
         });
@@ -107,6 +110,8 @@ $(document).ready(function () {
           $("#compare_title").text(
             "Currency Comparison: " + cur1 + " vs " + cur2
           );
+          $("#compareTable1").text(cur1);
+          $("#compareTable2").text(cur2);
           MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
             MultiSymbolFullDataChart(res);
           });
