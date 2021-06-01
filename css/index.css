@@ -24,3 +24,15 @@ img {
 .carasouel-caption > * {
   width: 100%;
 }
+
+.current_prices,
+.top_currencies,
+.compare {
+  background-color: #23252d;
+}
+
+canvas {
+  background-color: #10131b;
+  border-radius: 5px;
+  margin: 5px;
+}
