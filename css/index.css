@@ -32,7 +32,29 @@ img {
 }
 
 canvas {
-  background-color: #10131b;
   border-radius: 5px;
   margin: 5px;
+  background-color: #10131b;
+}
+
+body {
+  background-color: #23252d;
+}
+.accordion-item,
+.accordion-body,
+.accordion-header,
+.accordion-button,
+.accordion {
+  background-color: #10131b;
+  color: white;
+}
+.list-group-item {
+  /* background: linear-gradient(to bottom, #5072a7 0%, #416398 100%); */
+  background: linear-gradient(to bottom, #8c92ac 25%, #7d839d 50%);
+  margin: 3px;
+  border-radius: 4px;
+  color: white;
+}
+.list-group-numbered {
+  border-radius: 4px;
 }
