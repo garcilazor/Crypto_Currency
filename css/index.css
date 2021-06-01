@@ -44,6 +44,7 @@ body {
 .accordion-body,
 .accordion-header,
 .accordion-button,
+.accordion-button:enabled,
 .accordion {
   background-color: #10131b;
   color: white;
