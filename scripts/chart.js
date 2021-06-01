@@ -51,6 +51,13 @@ function marketCap(topTen) {
     type: "doughnut",
     data: data,
     options: {
+      title: {
+        display: true,
+        fontColor: "rgb(27, 162, 205)",
+        fontStyle: "regular",
+        fullWidth: false,
+        text: "Market Cap",
+      },
       responsive: true,
       legend: {
         labels: {

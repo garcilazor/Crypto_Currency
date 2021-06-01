@@ -1,3 +1,4 @@
+let marketCapLoaded = false;
 function topTenPrices(topTenData) {
   $("#price_header").replaceWith(
     "Top Currencies by Price" + " (" + topTenData[0].currencyCode + ")"
@@ -13,7 +14,10 @@ function populateHomePageGraphs(coinSymbol) {
     getTopTenVolume(code).then(function (topTenData) {
       topTenData.sort((a, b) => (a.coinPrice > b.coinPrice ? -1 : 1));
       topTenPrices(topTenData);
-      marketCap(topTenData);
+      if (marketCapLoaded == false) {
+        marketCap(topTenData);
+        marketCapLoaded = true;
+      }
       if (coinSymbol === null) {
         coinSymbol = topTenData[0].coinSymbol;
         $("#home_title").text("Currency data for: " + coinSymbol);
