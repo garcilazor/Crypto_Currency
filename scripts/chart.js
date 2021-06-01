@@ -148,6 +148,12 @@ function dayPriceGraph(dayData) {
               fontColor: "rgb(27, 162, 205)",
               fontSize: 18,
             },
+            gridLines: {
+              color: "rgb(27, 162, 205)",
+              lineWidth: 2,
+              zeroLineColor: "rgb(27, 162, 205)",
+              zeroLineWidth: 2,
+            },
           },
         ],
         xAxes: [
@@ -155,6 +161,12 @@ function dayPriceGraph(dayData) {
             ticks: {
               fontColor: "rgb(27, 162, 205)",
               fontSize: 14,
+            },
+            gridLines: {
+              color: "rgb(27, 162, 205)",
+              lineWidth: 2,
+              zeroLineColor: "rgb(27, 162, 205)",
+              zeroLineWidth: 2,
             },
           },
         ],
