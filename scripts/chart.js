@@ -51,12 +51,30 @@ function marketCap(topTen) {
     type: "doughnut",
     data: data,
     options: {
+      responsive: true,
       legend: {
-        position: "bottom",
+        labels: {
+          fontColor: "rgb(27, 162, 205)",
+          fontSize: 18,
+        },
       },
-      title: {
-        display: true,
-        text: "Market Cap",
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 18,
+            },
+          },
+        ],
+        xAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 14,
+            },
+          },
+        ],
       },
       maintainAspectRatio: false,
     },
@@ -116,8 +134,30 @@ function dayPriceGraph(dayData) {
     type: "line",
     data: data,
     options: {
+      responsive: true,
       legend: {
-        position: "top",
+        labels: {
+          fontColor: "rgb(27, 162, 205)",
+          fontSize: 18,
+        },
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 18,
+            },
+          },
+        ],
+        xAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 14,
+            },
+          },
+        ],
       },
     },
   });
@@ -142,8 +182,30 @@ function weekPriceGraph(weekData) {
     type: "line",
     data: data,
     options: {
+      responsive: true,
       legend: {
-        position: "top",
+        labels: {
+          fontColor: "rgb(27, 162, 205)",
+          fontSize: 18,
+        },
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 18,
+            },
+          },
+        ],
+        xAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 14,
+            },
+          },
+        ],
       },
     },
   });
@@ -169,8 +231,30 @@ function monthPriceGraph(monthData) {
     type: "line",
     data: data,
     options: {
+      responsive: true,
       legend: {
-        position: "top",
+        labels: {
+          fontColor: "rgb(27, 162, 205)",
+          fontSize: 18,
+        },
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 18,
+            },
+          },
+        ],
+        xAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 14,
+            },
+          },
+        ],
       },
     },
   });
@@ -197,7 +281,28 @@ function MultiSymbolFullDataChart(chartData) {
     options: {
       responsive: true,
       legend: {
-        position: "top",
+        labels: {
+          fontColor: "rgb(27, 162, 205)",
+          fontSize: 18,
+        },
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 18,
+            },
+          },
+        ],
+        xAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 14,
+            },
+          },
+        ],
       },
     },
   });
@@ -221,7 +326,28 @@ function MultiSymbolFullDataChart(chartData) {
     options: {
       responsive: true,
       legend: {
-        position: "top",
+        labels: {
+          fontColor: "rgb(27, 162, 205)",
+          fontSize: 18,
+        },
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 18,
+            },
+          },
+        ],
+        xAxes: [
+          {
+            ticks: {
+              fontColor: "rgb(27, 162, 205)",
+              fontSize: 14,
+            },
+          },
+        ],
       },
     },
   });
@@ -298,6 +424,10 @@ function InfluencerRadarGraph(influencerData) {
     options: {
       legend: {
         position: "top",
+        labels: {
+          fontColor: "rgb(27, 162, 205)",
+          fontSize: 18,
+        },
       },
     },
   });
