@@ -58,24 +58,6 @@ function marketCap(topTen) {
           fontSize: 18,
         },
       },
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              fontColor: "rgb(27, 162, 205)",
-              fontSize: 18,
-            },
-          },
-        ],
-        xAxes: [
-          {
-            ticks: {
-              fontColor: "rgb(27, 162, 205)",
-              fontSize: 14,
-            },
-          },
-        ],
-      },
       maintainAspectRatio: false,
     },
   });
