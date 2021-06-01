@@ -84,6 +84,36 @@ function marketCap(topTen) {
 function blockChainLineGraph(CoinName, input) {
   const options = {
     responsive: true,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            fontColor: "rgb(27, 162, 205)",
+            fontSize: 18,
+          },
+          gridLines: {
+            color: "rgb(27, 162, 205)",
+            lineWidth: 2,
+            zeroLineColor: "rgb(27, 162, 205)",
+            zeroLineWidth: 2,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          ticks: {
+            fontColor: "rgb(27, 162, 205)",
+            fontSize: 14,
+          },
+          gridLines: {
+            color: "rgb(27, 162, 205)",
+            lineWidth: 2,
+            zeroLineColor: "rgb(27, 162, 205)",
+            zeroLineWidth: 2,
+          },
+        },
+      ],
+    },
   };
   const data = {
     labels: input.time,
@@ -208,6 +238,12 @@ function weekPriceGraph(weekData) {
               fontColor: "rgb(27, 162, 205)",
               fontSize: 18,
             },
+            gridLines: {
+              color: "rgb(27, 162, 205)",
+              lineWidth: 2,
+              zeroLineColor: "rgb(27, 162, 205)",
+              zeroLineWidth: 2,
+            },
           },
         ],
         xAxes: [
@@ -215,6 +251,12 @@ function weekPriceGraph(weekData) {
             ticks: {
               fontColor: "rgb(27, 162, 205)",
               fontSize: 14,
+            },
+            gridLines: {
+              color: "rgb(27, 162, 205)",
+              lineWidth: 2,
+              zeroLineColor: "rgb(27, 162, 205)",
+              zeroLineWidth: 2,
             },
           },
         ],
@@ -257,6 +299,12 @@ function monthPriceGraph(monthData) {
               fontColor: "rgb(27, 162, 205)",
               fontSize: 18,
             },
+            gridLines: {
+              color: "rgb(27, 162, 205)",
+              lineWidth: 2,
+              zeroLineColor: "rgb(27, 162, 205)",
+              zeroLineWidth: 2,
+            },
           },
         ],
         xAxes: [
@@ -264,6 +312,12 @@ function monthPriceGraph(monthData) {
             ticks: {
               fontColor: "rgb(27, 162, 205)",
               fontSize: 14,
+            },
+            gridLines: {
+              color: "rgb(27, 162, 205)",
+              lineWidth: 2,
+              zeroLineColor: "rgb(27, 162, 205)",
+              zeroLineWidth: 2,
             },
           },
         ],
@@ -304,6 +358,12 @@ function MultiSymbolFullDataChart(chartData) {
             ticks: {
               fontColor: "rgb(27, 162, 205)",
               fontSize: 18,
+            },
+            gridLines: {
+              color: "rgb(27, 162, 205)",
+              lineWidth: 2,
+              zeroLineColor: "rgb(27, 162, 205)",
+              zeroLineWidth: 2,
             },
           },
         ],
@@ -349,6 +409,12 @@ function MultiSymbolFullDataChart(chartData) {
             ticks: {
               fontColor: "rgb(27, 162, 205)",
               fontSize: 18,
+            },
+            gridLines: {
+              color: "rgb(27, 162, 205)",
+              lineWidth: 2,
+              zeroLineColor: "rgb(27, 162, 205)",
+              zeroLineWidth: 2,
             },
           },
         ],
@@ -423,6 +489,10 @@ function InfluencerRadarGraph(influencerData) {
     options: {
       legend: {
         position: "top",
+        labels: {
+          fontColor: "rgb(27, 162, 205)",
+          fontSize: 18,
+        },
       },
     },
   });

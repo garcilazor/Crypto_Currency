@@ -40,6 +40,10 @@ canvas {
 body {
   background-color: #23252d;
 }
+h1,
+h2 {
+  color: white;
+}
 .accordion-item,
 .accordion-body,
 .accordion-header,
