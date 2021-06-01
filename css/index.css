@@ -35,6 +35,12 @@ canvas {
   border-radius: 5px;
   margin: 5px;
   background-color: #10131b;
+  box-shadow: 10px 5px 5px black;
+}
+
+#day_graph,
+#week_graph {
+  margin-bottom: 10px;
 }
 
 body {
@@ -52,6 +58,9 @@ h2 {
 .accordion {
   background-color: #10131b;
   color: white;
+}
+.accordion-item {
+  box-shadow: 10px 5px 5px black;
 }
 .list-group-item {
   /* background: linear-gradient(to bottom, #5072a7 0%, #416398 100%); */
