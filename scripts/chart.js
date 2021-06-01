@@ -137,6 +137,7 @@ function dayPriceGraph(dayData) {
         data: dayData.closingPrices,
         borderColor: "red",
         backgroundColor: "red",
+        pointRadius: 4,
       },
     ],
   };
@@ -197,6 +198,7 @@ function weekPriceGraph(weekData) {
         data: weekData.closingPrices,
         borderColor: "green",
         backgroundColor: "green",
+        pointRadius: 4,
       },
     ],
   };
@@ -256,8 +258,9 @@ function monthPriceGraph(monthData) {
         label: "Monthly Prices",
         fill: false,
         data: monthData.closingPrices,
-        borderColor: "black",
+        borderColor: "white",
         backgroundColor: "black",
+        pointRadius: 5,
       },
     ],
   };
