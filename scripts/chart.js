@@ -66,7 +66,21 @@ function marketCap(topTen) {
 function blockChainLineGraph(coinName, num, input) {
   console.log(input);
   const options = {
+    title: {
+      display: true,
+      fontColor: "rgb(27, 162, 205)",
+      fontStyle: "regular",
+      fullWidth: false,
+      text: "Block Chain Statistics",
+    },
     responsive: true,
+    legend: {
+      position: "top",
+      labels: {
+        fontColor: "rgb(27, 162, 205)",
+        fontSize: 18,
+      },
+    },
     scales: {
       yAxes: [
         {
@@ -334,6 +348,13 @@ function MultiSymbolFullDataChart(chartData) {
     type: "bar",
     data: data1,
     options: {
+      title: {
+        display: true,
+        fontColor: "rgb(27, 162, 205)",
+        fontStyle: "regular",
+        fullWidth: false,
+        text: "Price Information",
+      },
       responsive: true,
       legend: {
         labels: {
@@ -385,6 +406,13 @@ function MultiSymbolFullDataChart(chartData) {
     type: "bar",
     data: data2,
     options: {
+      title: {
+        display: true,
+        fontColor: "rgb(27, 162, 205)",
+        fontStyle: "regular",
+        fullWidth: false,
+        text: "Price Information",
+      },
       responsive: true,
       legend: {
         labels: {
@@ -440,7 +468,7 @@ function InfluencerRadarGraph(influencerData) {
     labels: names1,
     datasets: [
       {
-        label: `${influencerData.coin1.config.symbol}`,
+        label: `${influencerData.coin1.config.symbol.split("'").join("")}`,
         data: engagement1,
         fill: true,
         backgroundColor: "rgba(255, 99, 132, 0.2)",
@@ -456,7 +484,7 @@ function InfluencerRadarGraph(influencerData) {
     labels: names2,
     datasets: [
       {
-        label: `${influencerData.coin2.config.symbol}`,
+        label: `${influencerData.coin2.config.symbol.split("'").join("")}`,
         data: engagement2,
         fill: true,
         backgroundColor: "rgba(54, 162, 235, 0.2)",
@@ -476,11 +504,32 @@ function InfluencerRadarGraph(influencerData) {
     type: "radar",
     data: data1,
     options: {
+      title: {
+        display: true,
+        fontColor: "rgb(27, 162, 205)",
+        fontStyle: "regular",
+        fullWidth: false,
+        text: "Top Influencers by Engagement",
+      },
       legend: {
         position: "top",
         labels: {
           fontColor: "rgb(27, 162, 205)",
           fontSize: 18,
+        },
+      },
+      scale: {
+        ticks: {
+          display: false,
+        },
+        angleLines: {
+          color: "rgb(27, 162, 205)",
+        },
+        gridLines: {
+          color: "rgb(27, 162, 205)",
+        },
+        pointLabels: {
+          fontColor: "#fff",
         },
       },
     },
@@ -493,11 +542,32 @@ function InfluencerRadarGraph(influencerData) {
     type: "radar",
     data: data2,
     options: {
+      title: {
+        display: true,
+        fontColor: "rgb(27, 162, 205)",
+        fontStyle: "regular",
+        fullWidth: false,
+        text: "Top Influencers by Engagement",
+      },
       legend: {
         position: "top",
         labels: {
           fontColor: "rgb(27, 162, 205)",
           fontSize: 18,
+        },
+      },
+      scale: {
+        ticks: {
+          display: false,
+        },
+        angleLines: {
+          color: "rgb(27, 162, 205)",
+        },
+        gridLines: {
+          color: "rgb(27, 162, 205)",
+        },
+        pointLabels: {
+          fontColor: "#fff",
         },
       },
     },

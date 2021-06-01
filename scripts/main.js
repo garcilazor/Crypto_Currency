@@ -2,6 +2,11 @@ $(document).ready(function () {
   // We are on home page
   if ($("body").attr("id") === "home") {
     let coinSymbol = null;
+    $(".list-group-item").click(function () {
+      coinSymbol = $(this).text().split(" ")[0].split("[")[1].split("]")[0];
+      populateHomePageGraphs(coinSymbol);
+      $("#home_title").text("Currency data for: " + coinSymbol);
+    });
     $("#compare-button").click(function () {
       let url = null;
       let cur1 = $("#compare1").val().toString().toUpperCase();

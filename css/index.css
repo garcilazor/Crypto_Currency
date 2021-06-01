@@ -73,6 +73,7 @@ h2 {
   margin: 3px;
   border-radius: 4px;
   color: white;
+  cursor: pointer;
 }
 .list-group-numbered {
   border-radius: 4px;
