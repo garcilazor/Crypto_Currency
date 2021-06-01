@@ -46,6 +46,11 @@ canvas {
 body {
   background-color: #23252d;
 }
+
+.navbar {
+  background-color: #10131b;
+}
+
 h1,
 h2 {
   color: white;
