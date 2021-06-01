@@ -178,7 +178,7 @@ function monthPriceGraph(monthData) {
 
 function MultiSymbolFullDataChart(chartData) {
   // console.log(chartData.currency1.data);
-  const data = {
+  const data1 = {
     labels: chartData.labels,
     datasets: [
       {
@@ -187,6 +187,23 @@ function MultiSymbolFullDataChart(chartData) {
         backgroundColor: "red",
         data: chartData.currency1.data,
       },
+    ],
+  };
+  var canvas = document.getElementById("graph_currency_one");
+  let ctx = canvas.getContext("2d");
+  var myChart = new Chart(ctx, {
+    type: "bar",
+    data: data1,
+    options: {
+      responsive: true,
+      legend: {
+        position: "top",
+      },
+    },
+  });
+  const data2 = {
+    labels: chartData.labels,
+    datasets: [
       {
         label: chartData.currency2.symbol,
         borderColor: "blue",
@@ -195,23 +212,12 @@ function MultiSymbolFullDataChart(chartData) {
       },
     ],
   };
-  var canvas = document.getElementById("graph_currency_one");
-  let ctx = canvas.getContext("2d");
-  var myChart = new Chart(ctx, {
-    type: "bar",
-    data: data,
-    options: {
-      responsive: true,
-      legend: {
-        position: "top",
-      },
-    },
-  });
+
   var canvas1 = document.getElementById("graph_currency_two");
   let ctx1 = canvas1.getContext("2d");
   var myChart = new Chart(ctx1, {
     type: "bar",
-    data: data,
+    data: data2,
     options: {
       responsive: true,
       legend: {
