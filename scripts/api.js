@@ -194,6 +194,9 @@ async function HistoricalDailyBlockChain(targetCurrency) {
   let currentSupply = [];
   let blockSize = [];
   let finalData = {};
+  let hashRate = [];
+  let blockTime = [];
+  let avgTransactionValue = [];
   let data = await fetch(url)
     .then((response) => response.json())
     .then((res) => {
@@ -205,12 +208,18 @@ async function HistoricalDailyBlockChain(targetCurrency) {
         blockSize.push(entry.block_size);
         transactionCount.push(entry.transaction_count);
         currentSupply.push(entry.current_supply);
+        hashRate.push(entry.hashrate);
+        blockTime.push(entry.block_time);
+        avgTransactionValue.push(entry.average_transaction_value);
       });
       finalData.time = time;
       finalData.data = rawData;
       finalData.transactionCount = transactionCount;
       finalData.currentSupply = currentSupply;
       finalData.blockSize = blockSize;
+      finalData.hashRate = hashRate;
+      finalData.blockTime = blockTime;
+      finalData.avgTransactionValue = avgTransactionValue;
       return finalData;
     })
     .catch((error) => console.log(error));

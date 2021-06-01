@@ -63,7 +63,8 @@ function marketCap(topTen) {
   });
 }
 
-function blockChainLineGraph(CoinName, input) {
+function blockChainLineGraph(coinName, num, input) {
+  console.log(input);
   const options = {
     responsive: true,
     scales: {
@@ -72,6 +73,7 @@ function blockChainLineGraph(CoinName, input) {
           ticks: {
             fontColor: "rgb(27, 162, 205)",
             fontSize: 18,
+            suggestedMin: 50000,
           },
           gridLines: {
             color: "rgb(27, 162, 205)",
@@ -101,23 +103,25 @@ function blockChainLineGraph(CoinName, input) {
     labels: input.time,
     datasets: [
       {
-        label: "Transaction Count",
-        data: input.transactionCount,
+        label: "Avg Transaction value",
+        data: input.avgTransactionValue,
         fill: false,
         backgroundColor: "red",
         borderColor: "red", // The main line color
       },
       {
-        label: "Block Size",
-        data: input.blockSize,
+        label: "Block Time",
+        data: input.blockTime,
         fill: false,
         backgroundColor: "green",
         borderColor: "green", // The main line color
       },
     ],
   };
-  $("#blocksMined").replaceWith('<canvas id="blocksMined"></canvas>');
-  let canvas = document.getElementById("blocksMined");
+  $(`#blockchain_graph${num}`).replaceWith(
+    `<canvas id="blockchain_graph${num}"></canvas>`
+  );
+  let canvas = document.getElementById(`blockchain_graph${num}`);
   let ctx = canvas.getContext("2d");
   var myChart = new Chart(ctx, {
     type: "line",

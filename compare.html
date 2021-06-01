@@ -55,9 +55,30 @@
     </nav>
     <main>
       <div class="row justify-content-center">
-        <div class="col-sm-12 title" >
+        <div class="col-sm-8 title" >
           <h1 id="compare_title"></h1>
         </div>
+        <div class="col-sm-4 compare">
+          <div class="input-group p-2">
+            <input
+              type="text"
+              class="form-control"
+              id="compare1"
+              placeholder="BTC"
+            />
+            <input
+              type="text"
+              class="form-control"
+              id="compare2"
+              placeholder="Doge"
+            />
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit" id="compare-button">
+                Compare
+              </button>
+            </span>
+          </div>
+</div>
         <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -93,6 +114,26 @@
               <canvas
                 id="influencer_graph2"
                 aria-label="graph of influencer engagment"
+                role="img"
+              ></canvas>
+                  <!-- ADD RADAR CHART 2 HERE -->
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row justify-content-center">
+                <div class="col-md-5">
+              <canvas
+                id="blockchain_graph1"
+                aria-label="graph of blockchain transactions"
+                role="img"
+              ></canvas>
+                  <!-- ADD RADAR CHART 1 HERE -->
+                </div>
+                <div class="col-md-5">
+              <canvas
+                id="blockchain_graph2"
+                aria-label="graph of blockchain transactions"
                 role="img"
               ></canvas>
                   <!-- ADD RADAR CHART 2 HERE -->

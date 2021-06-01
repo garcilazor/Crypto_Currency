@@ -29,6 +29,23 @@ $(document).ready(function () {
   }
   // We are on compare page
   if ($("body").attr("id") === "compare") {
+    $("#compare-button").click(function () {
+      let url = null;
+      let cur1 = $("#compare1").val().toString().toUpperCase();
+      let cur2 = $("#compare2").val().toString().toUpperCase();
+      if (!cur1 || !cur2) {
+        url = "./compare.html";
+        window.location.href = url;
+      } else {
+        url =
+          "./compare.html" +
+          "?cur1=" +
+          encodeURIComponent(cur1) +
+          "&cur2=" +
+          encodeURIComponent(cur2);
+      }
+      window.location.href = url;
+    });
     getCurrencyCode().then(function (localCurrency) {
       // console.log(localCurrency);
       let searchParams = new URLSearchParams(window.location.search);
@@ -39,6 +56,12 @@ $(document).ready(function () {
         $("#compare_title").text(
           "Currency Comparison: " + cur1 + " vs " + cur2
         );
+        HistoricalDailyBlockChain(cur1).then((res) => {
+          blockChainLineGraph(cur1, 1, res);
+        });
+        HistoricalDailyBlockChain(cur2).then((res) => {
+          blockChainLineGraph(cur2, 2, res);
+        });
         MutlipleSymbolsFullData(cur1, cur2, localCurrency).then((res) => {
           //console.log(res);
           MultiSymbolFullDataChart(res);
@@ -105,12 +128,15 @@ $(document).ready(function () {
           getInfluencerData(cur1, cur2, 10, 7).then((res) => {
             InfluencerRadarGraph(res);
           });
+          HistoricalDailyBlockChain(cur1).then((res) => {
+            blockChainLineGraph(cur1, 1, res);
+          });
+          HistoricalDailyBlockChain(cur2).then((res) => {
+            blockChainLineGraph(cur2, 2, res);
+          });
         });
       }
     });
-    // HistoricalDailyBlockChain(coinSymbol).then((res) => {
-    //   blockChainLineGraph(coinSymbol, res);
-    // });
   }
 });
 
