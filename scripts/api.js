@@ -28,6 +28,8 @@ async function fetchCryptoCoinId(coinSymbol1, coinSymbol2) {
   // console.log(coinIds);
   return coinIds;
 }
+// Retrieves the top 10 crypto currencies based on volume and saves other useful data
+// surrounding the coin to be returned as a formatted list of objects with better property names.
 async function getTopTenVolume(localCurrency) {
   let url = `https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=${localCurrency}&api_key=${CRYPTOCOMPAREAPI}`;
   let topTen = await fetch(url)
@@ -186,6 +188,10 @@ async function getNewArticles() {
     .catch((error) => console.log(error));
 }
 
+// Gets the blockchain data for the coin passed in as targetCurrency
+// Creates a custom object array and converts the unix epoch timestamp retrieved into a readable
+// date to be displayed later in the chart rendering function.
+// Time array is used as the array of labels for chartjs.
 async function HistoricalDailyBlockChain(targetCurrency) {
   let url = `https://min-api.cryptocompare.com/data/blockchain/histo/day?fsym=${targetCurrency}&api_key=${CRYPTOCOMPAREAPI}`;
   let time = [];
@@ -201,9 +207,11 @@ async function HistoricalDailyBlockChain(targetCurrency) {
     .then((response) => response.json())
     .then((res) => {
       Object.values(res.Data.Data).map((entry) => {
+        // Convert unix epoch time to human-readable format
         let d = new Date(0);
         d.setUTCSeconds(entry.time);
         time.push(d.toLocaleString().split(",", 1));
+
         rawData.push(entry);
         blockSize.push(entry.block_size);
         transactionCount.push(entry.transaction_count);
@@ -226,6 +234,9 @@ async function HistoricalDailyBlockChain(targetCurrency) {
   return data;
 }
 
+// Retrives 24-hour price data of the 2 currencies passed in and converts it in terms of
+// the local currency provided.
+// also creates a label array to be used by the chartjs function that renders the related graph.
 async function MutlipleSymbolsFullData(currency1, currency2, localCurrency) {
   let url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${currency1},${currency2}&tsyms=${localCurrency}`;
   let data = await fetch(url)
@@ -288,6 +299,10 @@ async function getMiningData(currency1, currency2, currCode) {
   return data;
 }
 
+// Retrieves full pricing data of 2 dfferent cryptocurrency symbols [curr1, curr2]
+// localCurrency is the desired local currency to convert the values too.
+// Once the data is retrieved a custom list of objects are constructed to be used by other
+// functions in the app.
 async function getPricingInfo(curr1, curr2, localCurrency) {
   let url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${curr1},${curr2}&tsyms=${localCurrency}`;
   let dataArr = [];
@@ -360,6 +375,10 @@ async function getPricingInfo(curr1, curr2, localCurrency) {
 }
 
 // Get most engaged influencers for the 2 coins passed into coin{1,2} arguments
+// Engagement is based on number of followers, comments/likes on tweets that have to do with the cryptocurrency
+// default is to get the top 10 influencers and aggregate the data from the last 30 days to calculate this top 10
+// No gaurantee of what order the coins are retrieved since they are async, so the caller needs to do a check on the returned
+// coins symbols to see that data corresponds to which coin.
 async function getInfluencerData(coin1, coin2, limit = 10, num_days = 30) {
   urlCoin1 = `https://api.lunarcrush.com/v2?data=influencers&key=${LUNARCRUSHAPI}&num_days=${num_days}&days=7&symbol=${coin1}&limit=${limit}`;
   urlCoin2 = `https://api.lunarcrush.com/v2?data=influencers&key=${LUNARCRUSHAPI}&num_days=${num_days}&days=7&symbol=${coin2}&limit=${limit}`;

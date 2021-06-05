@@ -84,6 +84,8 @@ function marketCap(topTen) {
   });
 }
 
+// Constructs the graph for the block chain transaction data
+// plots transaction value avg with the block time
 function blockChainLineGraph(coinName, num, input) {
   console.log(input);
   const options = {
@@ -353,6 +355,7 @@ function monthPriceGraph(monthData) {
   });
 }
 
+// Plots the 24-hour pricing data as a bar graph
 function MultiSymbolFullDataChart(chartData) {
   // console.log(chartData.currency1.data);
   const data1 = {
@@ -472,6 +475,8 @@ function MultiSymbolFullDataChart(chartData) {
   });
 }
 
+// Plots the top 10 influencers as a radar graph
+// Data from the LUNARcrush API endpoint
 function InfluencerRadarGraph(influencerData) {
   //console.log(influencerData);
   let names1 = [];
