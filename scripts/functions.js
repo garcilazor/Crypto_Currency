@@ -1,4 +1,6 @@
 let marketCapLoaded = false;
+//A function that populates the list on the home page
+// for the top currencies by prices
 function topTenPrices(topTenData) {
   $("#price_header").replaceWith(
     "Top Currencies by Price" + " (" + topTenData[0].currencyCode + ")"
@@ -8,7 +10,10 @@ function topTenPrices(topTenData) {
     listItem.innerHTML = "[" + value.coinSymbol + "] " + value.coinPrice;
   });
 }
-
+//A function that is used to populate the day, week, month
+// price graphs on the home page. It accepts an argument
+// where if not null it will get the infromation specifed
+// with the coin symbol
 function populateHomePageGraphs(coinSymbol) {
   getCurrencyCode().then(function (code) {
     getTopTenVolume(code).then(function (topTenData) {
@@ -36,7 +41,9 @@ function populateHomePageGraphs(coinSymbol) {
     });
   });
 }
-
+// A function to populate the mining tables on the
+// compare page. Once again accepts an array of object
+// that has all the info required to populate
 function poplateMiningTable(miningObj) {
   for (let i = 0; i < miningObj.length; i++) {
     $("#launchDate" + (i + 1)).text(miningObj[i].launchDate);
@@ -47,7 +54,8 @@ function poplateMiningTable(miningObj) {
     $("#totalCoins" + (i + 1)).text(miningObj[i].totalCoinsMined);
   }
 }
-
+//A function to populate the social media table
+//it accepts an object that's associated with which table it should populate
 function populateSocialMediaTable(socialData, i) {
   $("#fbLikes" + i).text(socialData.Facebook.likes);
   $("#twitStat" + i).text(socialData.Twitter.statuses);
@@ -56,7 +64,8 @@ function populateSocialMediaTable(socialData, i) {
   $("#repoStars" + i).text(socialData.CodeRepository.List[0].stars);
   $("#forumView" + i).text(socialData.CryptoCompare.PageViewsSplit.Forum);
 }
-
+//A function to populate the pricing tables on the compare page
+//it accepts a an array that consist of two objects
 function populatePricingTables(pricingData) {
   for (let i = 0; i < pricingData.length; i++) {
     console.log(pricingData[i]);
@@ -84,11 +93,17 @@ function populatePricingTables(pricingData) {
   }
 }
 
+// the next three functions are used to handle the collapse of the two tables
+// that are not associated with the button that is being clicked
 function miningDataClick() {
+  //checking to see if the button has the aria-expanded property set to true
+  //indicating the tables associated with the button should be shown
   if ($("#miningData").attr("aria-expanded") === "true") {
     $("#compareTable1").show();
     $("#compareTable2").show();
     // if ($("#miningData").attr("aria-expanded") === "true") {
+    //just collapse the other two tables and set their class names to
+    // the appropriate value
     let className = $("#pricingData").attr("class") + " collapsed";
     $("#pricingData").attr("class", className);
     $("#pricingData").attr("aria-expanded", "false");

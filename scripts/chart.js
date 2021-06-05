@@ -1,3 +1,5 @@
+//This function created the doughnut chart
+//graph for the top ten currencies market cap
 function marketCap(topTen) {
   // console.log(parseInt(topTen[0].marketCap));
   const data = {
@@ -166,7 +168,8 @@ function blockChainLineGraph(coinName, num, input) {
     options: options,
   });
 }
-
+// This function creates the graph for the home page
+// for the day price graph
 function dayPriceGraph(dayData) {
   // console.log(dayData);
   const data = {
@@ -231,7 +234,8 @@ function dayPriceGraph(dayData) {
     },
   });
 }
-
+// This function creates the graph for the home page
+// for the weekly price graph
 function weekPriceGraph(weekData) {
   const data = {
     labels: weekData.time,
@@ -292,7 +296,8 @@ function weekPriceGraph(weekData) {
     },
   });
 }
-
+// This function creates the graph for the home page
+// fro the monthly price graph
 function monthPriceGraph(monthData) {
   //console.log(monthData);
   const data = {

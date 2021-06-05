@@ -98,7 +98,8 @@ async function getCurrencyCode() {
 }
 
 //fetches the historical of a particular cryptocurrency
-// in a particular currency
+// in a particular currency based on the currency code that was fetch and passed in
+//along with the speicification for what is needed in terms of day, week, month
 async function getHistoricalData(coinSymbol, currencyCode, choice) {
   // console.log(coinSymbol, currencyCode, choice);
   let times = [];
@@ -106,6 +107,7 @@ async function getHistoricalData(coinSymbol, currencyCode, choice) {
   let allData = {};
 
   let limit = 0;
+  //formatting the url for the specific request
   let url = `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${coinSymbol}&tsym=${currencyCode}`;
   if (choice === "month") {
     limit = 30;
@@ -152,6 +154,7 @@ async function getNewArticles() {
     .then((data) => {
       let articles = [];
       //  console.log(data.Data);
+      //gets the needed values for the article information
       Object.values(data.Data).map((entry) => {
         articles.push({
           title: entry.title,
@@ -162,6 +165,7 @@ async function getNewArticles() {
         });
       });
       let flag = 1;
+      //populated the article carosuel
       articles.forEach((entry, index) => {
         let ele = document.createElement("div");
         let wordCount = entry.body.split(" ");
@@ -263,6 +267,7 @@ async function MutlipleSymbolsFullData(currency1, currency2, localCurrency) {
   return parsedData;
 }
 
+// a function to intialize a mining object from a data object
 function intializeMiningObj(currency, data) {
   coinData = data[currency].CoinInfo;
   let miningObj = {
@@ -277,6 +282,9 @@ function intializeMiningObj(currency, data) {
   return miningObj;
 }
 
+//A function that retrieves mining related data from the two
+//currencies that are passed into the function for comparsion
+//this data will then be used to poulate the mining data table
 async function getMiningData(currency1, currency2, currCode) {
   let url = `https://min-api.cryptocompare.com/data/blockchain/mining/calculator?fsyms=${currency1},${currency2}&tsyms=${currCode}`;
   let coins = [];
